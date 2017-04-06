@@ -5,10 +5,10 @@ Installation
 
 sudo apt-get install git
 
-sudo git clone 
+sudo git clone https://github.com/Slowblitz/G-nie-log.git
 
 
-Rapel d'utilisation 
+# Rapel d'utilisation 
 
 Apres creation de fichier : git add nomdufichier
 
