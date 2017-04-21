@@ -40,7 +40,11 @@ Map::Map(int n)
 
 void Map::affichage()
 {
-	for(int o=0; o<taille; o++)cerr<<"--";
+	for(int o=0; o<taille+1; o++)
+	{
+		if(o==taille-1)cerr<<"-";
+		else cerr<<"--";
+	}
 		cerr<<endl;
 	
 	for(int i=0; i<taille; i++)
@@ -55,6 +59,10 @@ void Map::affichage()
 
 		cerr<<"|"<<endl;
 	}
-	for(int o=0; o<taille; o++)cerr<<"--";
+	for(int o=0; o<taille+1; o++)
+	{
+		if(o==taille-1)cerr<<"-";
+		else cerr<<"--";
+	}
 		cerr<<endl;
 }
