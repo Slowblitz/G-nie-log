@@ -14,13 +14,15 @@ Map::Map(int n)
 
     	fichier >> t;
 
-    	this->taille=t;
+    	taille=t;
 
     	//cerr<<t<<endl;
 	
 		mp=new Case*[taille];
 
-		for (int i=0; i < taille; i++)
+		if(!fichier.eof())getline(fichier,ligne);
+
+		for (int i=0; i < taille+1; i++)
 		{
 			if(!fichier.eof())getline(fichier,ligne);
 			mp[i]=new Case[taille];
@@ -33,16 +35,18 @@ Map::Map(int n)
 		}
 
 	}
-	else cerr<<"dkjkhgf";
+	else cerr<<"error";
 }
 
 void Map::affichage()
 {
+	//cerr<<"--TEST--"<<endl;
 	for(int i=0; i<taille; i++)
 	{	
+		
 		for(int j=0; j<taille; j++)
 		{
-			cout<<""<<mp[i][j].getcntn()<<" ";//PlaPla[i][j].getclr();
+			cerr<<""<<mp[i][j].getcntn()<<" ";
 		}
 
 		cerr<<endl;
