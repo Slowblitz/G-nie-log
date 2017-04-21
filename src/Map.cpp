@@ -35,20 +35,26 @@ Map::Map(int n)
 		}
 
 	}
-	else cerr<<"error";
+	else cerr<<"erreur";
 }
 
 void Map::affichage()
 {
-	//cerr<<"--TEST--"<<endl;
+	for(int o=0; o<taille; o++)cerr<<"--";
+		cerr<<endl;
+	
 	for(int i=0; i<taille; i++)
 	{	
 		
 		for(int j=0; j<taille; j++)
 		{
-			cerr<<""<<mp[i][j].getcntn()<<" ";
+			if(j==0)cerr<<"|"<<mp[i][j].getcntn()<<" ";
+			else if(j==taille-1)cerr<<""<<mp[i][j].getcntn();
+			else cerr<<""<<mp[i][j].getcntn()<<" ";
 		}
 
-		cerr<<endl;
+		cerr<<"|"<<endl;
 	}
+	for(int o=0; o<taille; o++)cerr<<"--";
+		cerr<<endl;
 }

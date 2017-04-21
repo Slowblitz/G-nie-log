@@ -26,9 +26,11 @@ class perso
 
 class guerrier : public perso
 {
-
+	int PointDeVie,PointDeMana,DmgMin,DmgMax;
 	
-	public :
+	public:
+
+
 		int AttackBase();
 		int CompD();
 		int CompDef1();
@@ -38,24 +40,26 @@ class guerrier : public perso
 
 class mage : public perso
 {
+	int PointDeVie,PointDeMana,DmgMin,DmgMax;
 
+	public:
 
-	public :
-		int AttackBase(int DmgMin,int DmgMaw);
-		int CompD(int, int);
-		int CompDef1(int);
+		int AttackBase();
+		int CompD();
+		int CompDef1();
 };
 
 
 
 class guerriseur : public perso
 {
+	int PointDeVie,PointDeMana,DmgMin,DmgMax;
 
+	public:
 
-	public :
-		int AttackBase(int DmgMin,int DmgMaw);
-		int CompD(int, int);
-		int CompDef1(int);
+		int AttackBase();
+		int CompD();
+		int CompDef1();
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,11 +71,12 @@ class monster
 	int PointDeVie,DmgMin,DmgMax;
 
 	public:	
-			monster();
-			int AttackBase();
-			int getPointDeVie();
-			int getDmgMax();
-			int getDmgMin();
-
+		
+		monster();
+		int AttackBase();
+		int getPointDeVie();
+		int getDmgMax();
+		int getDmgMin();
+		void setPv(int n);
 
 };

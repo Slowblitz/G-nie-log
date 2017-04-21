@@ -2,7 +2,8 @@ clear
 g++ Case.cpp -c
 g++ Map.cpp -c
 g++ main.cpp -c
-g++ Case.o Map.o main.o -o rpg.exe
+g++ Perso.cpp -c
+g++ Case.o Map.o Perso.o main.o -o rpg.exe
 
 ./rpg.exe
 rm *.o *.exe

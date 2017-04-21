@@ -29,6 +29,7 @@ ifstream fichier("Perso.dat", ios::in);  // on ouvre le fichier en lecture
  
       
 }
+
 ////////////////////////////////////////////////////////////////////////
 string perso::getname()
 {
@@ -72,7 +73,7 @@ int guerrier::AttackBase()
 	int dmg;
 	srand (time(NULL));
 
-	dmg = rand() % 10 + 1;/* generate secret number between 1 and 10: */
+	dmg = rand() % this->DmgMax + this->DmgMin;/* generate secret number between 1 and 10: */
 	dmg+=2;
 	return dmg;
 
@@ -88,6 +89,40 @@ int guerrier::CompD()
 }
 
 int guerrier::CompDef1()
+{
+
+this->AttackBase();
+this->AttackBase();
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+int mage::AttackBase()
+{
+	int dmg;
+	srand (time(NULL));
+
+	dmg = rand() % 10 + 1;/* generate secret number between 1 and 10: */
+	return dmg;
+
+}
+
+
+
+int mage::CompD()
+{	this->setPm(20);
+	int dmg=24;
+	return dmg;
+
+}
+
+int mage::CompDef1()
 {
 
 this->AttackBase();
@@ -151,18 +186,30 @@ int monster::getDmgMin()
 	return this->DmgMin;
 }
 
+void monster::setPv(int n)
+{
+	this->PointDeVie=this->PointDeVie-n;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int main(){
+/*int main(){
 
 guerrier p;
 monster m;
-cout<<p.CompD()<<endl;
-cout<<p.getPointDeMana()<<endl;
 
-cout<<m.getPointDeVie()<<endl;
+cout<<"PointDeMana avant utilisation de la CompD : "<<p.getPointDeMana()<<endl;
+cout<<"degat CompD du guerrier : "<<p.CompD()<<endl;
+cout<<"PointDeMana apres utilisation de la CompD : "<<p.getPointDeMana()<<endl;
+
+cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
+
+m.setPv(p.CompD());
+
+cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
+
 return 0;
 
-}
+}*/
