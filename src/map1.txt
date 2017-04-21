@@ -1,11 +1,11 @@
 10
-  AA   M  
-   AA     
-R   A     
-R     R   
-R M  R M  
-    R     
- EEE     J
- EEE R R  
- EEE RMR  
-     RRR  
+  **   M  
+   **     
+^   *     
+^     ^   
+^ M  ^ M  
+    ^     
+ ~~~     J
+ ~~~ ^ ^  
+ ~~~ ^M^  
+     ^^^  

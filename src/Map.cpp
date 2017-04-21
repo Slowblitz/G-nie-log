@@ -66,3 +66,47 @@ void Map::affichage()
 	}
 		cerr<<endl;
 }
+
+
+void Map::affichageWM()
+{
+	for(int o=0; o<taille+1; o++)
+	{
+		if(o==taille-1)cerr<<"-";
+		else cerr<<"--";
+	}
+		cerr<<endl;
+	
+	for(int i=0; i<taille; i++)
+	{	
+		
+		for(int j=0; j<taille; j++)
+		{
+			if(j==0)
+			{
+				if(mp[i][j].getcntn()=="M")cerr<<"|"<<" "<<" ";
+				else cerr<<"|"<<mp[i][j].getcntn()<<" ";
+			}
+
+			else if(j==taille-1)
+			{
+				if(mp[i][j].getcntn()=="M")cerr<<" ";
+				else cerr<<mp[i][j].getcntn();
+			}
+
+			else 
+			{
+				if(mp[i][j].getcntn()=="M")cerr<<" "<<" ";
+				else cerr<<mp[i][j].getcntn()<<" ";
+			}
+		}
+
+		cerr<<"|"<<endl;
+	}
+	for(int o=0; o<taille+1; o++)
+	{
+		if(o==taille-1)cerr<<"-";
+		else cerr<<"--";
+	}
+		cerr<<endl;
+}

@@ -22,6 +22,8 @@ int main(int argc, char const *argv[])
 
 	cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
 
+	map.affichageWM();
+
 	return 0;
 
 }

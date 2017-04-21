@@ -14,6 +14,7 @@ public:
 	Map(int n);
 
 	void affichage();
+	void affichageWM();
 	/*bool coupjoue(int x, int y, Joueur J);
 	int getnbTotalCase();
 	bool MapPlein(int n);
