@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 
 using namespace std;
 
@@ -27,7 +27,7 @@ class perso
 class guerrier : public perso
 {
 
-
+	
 	public :
 		int AttackBase();
 		int CompD();
@@ -58,5 +58,20 @@ class guerriseur : public perso
 		int CompDef1(int);
 };
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+class monster 
+{
+	int PointDeVie,DmgMin,DmgMax;
+
+	public:	
+			monster();
+			int AttackBase();
+			int getPointDeVie();
+			int getDmgMax();
+			int getDmgMin();
+
+
+};
