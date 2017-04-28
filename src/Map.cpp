@@ -110,3 +110,334 @@ void Map::affichageWM()
 	}
 		cerr<<endl;
 }
+
+bool Map::trouveJ(string s, guerrier &p, monster &m)
+{
+	for (int i=0; i < taille+1; i++)
+	{
+		for (int j=0; j < taille; j++)
+		{
+			if(mp[i][j].getcntn()=="J")
+			{
+				if(s=="h" || s=="^[[A")
+				{
+					if(i>0 && i<taille)
+					{
+						if(mp[i-1][j].getcntn()=="*" || mp[i-1][j].getcntn()=="^" || mp[i-1][j].getcntn()=="~") return false;
+
+						else if(mp[i-1][j].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i-1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="b" || s=="^[[B")
+				{
+					if(i>=0 && i<taille-1)
+					{
+						if(mp[i+1][j].getcntn()=="*" || mp[i+1][j].getcntn()=="^" || mp[i+1][j].getcntn()=="~") return false;
+
+						else if(mp[i+1][j].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i+1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="g" || s=="^[[D")
+				{
+					if(j>0 && j<taille)
+					{
+						if(mp[i][j-1].getcntn()=="*" || mp[i][j-1].getcntn()=="^" || mp[i][j-1].getcntn()=="~") return false;
+
+						else if(mp[i][j-1].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i][j-1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="d" || s=="^[[C")
+				{
+					if(j>=0 && j<taille-1)
+					{
+						if(mp[i][j+1].getcntn()=="*" || mp[i][j+1].getcntn()=="^" || mp[i][j+1].getcntn()=="~") return false;
+
+						else if(mp[i][j+1].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i][j+1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else return false;
+			}
+			//mp[i][j].modifcntnC("B");
+		}
+	}
+}
+
+bool Map::trouveJ(string s, mage &p, monster &m)
+{
+	for (int i=0; i < taille+1; i++)
+	{
+		for (int j=0; j < taille; j++)
+		{
+			if(mp[i][j].getcntn()=="J")
+			{
+				if(s=="h" || s=="^[[A")
+				{
+					if(i>0 && i<taille)
+					{
+						if(mp[i-1][j].getcntn()=="*" || mp[i-1][j].getcntn()=="^" || mp[i-1][j].getcntn()=="~") return false;
+
+						else if(mp[i-1][j].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i-1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="b" || s=="^[[B")
+				{
+					if(i>=0 && i<taille-1)
+					{
+						if(mp[i+1][j].getcntn()=="*" || mp[i+1][j].getcntn()=="^" || mp[i+1][j].getcntn()=="~") return false;
+
+						else if(mp[i+1][j].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i+1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="g" || s=="^[[D")
+				{
+					if(j>0 && j<taille)
+					{
+						if(mp[i][j-1].getcntn()=="*" || mp[i][j-1].getcntn()=="^" || mp[i][j-1].getcntn()=="~") return false;
+
+						else if(mp[i][j-1].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i][j-1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="d" || s=="^[[C")
+				{
+					if(j>=0 && j<taille-1)
+					{
+						if(mp[i][j+1].getcntn()=="*" || mp[i][j+1].getcntn()=="^" || mp[i][j+1].getcntn()=="~") return false;
+
+						else if(mp[i][j+1].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i][j+1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else return false;
+			}
+			//mp[i][j].modifcntnC("B");
+		}
+	}
+}
+
+bool Map::trouveJ(string s, guerriseur &p, monster &m)
+{
+	for (int i=0; i < taille+1; i++)
+	{
+		for (int j=0; j < taille; j++)
+		{
+			if(mp[i][j].getcntn()=="J")
+			{
+				if(s=="h" || s=="^[[A")
+				{
+					if(i>0 && i<taille)
+					{
+						if(mp[i-1][j].getcntn()=="*" || mp[i-1][j].getcntn()=="^" || mp[i-1][j].getcntn()=="~") return false;
+
+						else if(mp[i-1][j].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i-1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="b" || s=="^[[B")
+				{
+					if(i>=0 && i<taille-1)
+					{
+						if(mp[i+1][j].getcntn()=="*" || mp[i+1][j].getcntn()=="^" || mp[i+1][j].getcntn()=="~") return false;
+
+						else if(mp[i+1][j].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i+1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="g" || s=="^[[D")
+				{
+					if(j>0 && j<taille)
+					{
+						if(mp[i][j-1].getcntn()=="*" || mp[i][j-1].getcntn()=="^" || mp[i][j-1].getcntn()=="~") return false;
+
+						else if(mp[i][j-1].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i][j-1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="d" || s=="^[[C")
+				{
+					if(j>=0 && j<taille-1)
+					{
+						if(mp[i][j+1].getcntn()=="*" || mp[i][j+1].getcntn()=="^" || mp[i][j+1].getcntn()=="~") return false;
+
+						else if(mp[i][j+1].getcntn()=="M")
+						{
+
+						}
+						
+						else
+						{
+							mp[i][j+1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else return false;
+			}
+			//mp[i][j].modifcntnC("B");
+		}
+	}
+}
+
+bool Map::combat(guerrier &p, monster &m)
+{
+	while(p.getPointDeVie()!=0 && m.getPointDeVie()!=0)
+	{
+		
+	}
+}
+
+

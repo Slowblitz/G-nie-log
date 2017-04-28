@@ -1,6 +1,5 @@
 #include "Case.h"
-//#include "Joueur.h"
-
+#include "Perso.h"
 
 
 class Map
@@ -15,15 +14,13 @@ public:
 
 	void affichage();
 	void affichageWM();
-	/*bool coupjoue(int x, int y, Joueur J);
-	int getnbTotalCase();
-	bool MapPlein(int n);
-	int getRayon();*/
+	bool trouveJ(string s, guerrier &p, monster &m);
+	bool trouveJ(string s, mage &p, monster &m);
+	bool trouveJ(string s, guerriseur &p, monster &m);
+	bool combat(guerrier &p, monster &m);
+	bool combat(mage &p, monster &m);
+	bool combat(guerriseur &p, monster &m);
 
 	friend class Case;
 	
 };
-
-/*void ClearScreen();
-bool verifChaine(string c);
-bool verifTailleMap(int n);*/

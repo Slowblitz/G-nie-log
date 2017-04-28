@@ -24,6 +24,23 @@ int main(int argc, char const *argv[])
 
 	map.affichageWM();
 
+
+	string s;
+
+	
+	while(1)
+	{
+		do
+		{
+			cout<<"choisissez une direction (haut -> h / bas -> b / gauche -> g / droite -> d)"<<endl;
+			cin>>s;
+
+			system("clear");	
+		}while(!map.trouveJ(s, p, m));
+
+		map.affichage();
+	}
+
 	return 0;
 
 }

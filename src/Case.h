@@ -18,6 +18,7 @@ class Case
 public:
 
 	Case();
+	Case(int a, int b);
 	Case(int a, int b, int i, char s);
 
 	int getx();
@@ -25,8 +26,6 @@ public:
 	string getcntn();
 
 	void modifcntnC(string s);
-
-	//bool verifCoord(int t);
 
 	friend class Plateau;
 

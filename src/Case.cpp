@@ -8,6 +8,14 @@ Case::Case()
 	cntn="0";
 }
 
+Case::Case(int a, int b)
+{
+	x=a;
+	y=b;
+	ini=0;
+	cntn="0";
+}
+
 Case::Case(int a, int b, int i, char s)
 {
 	x=a;
@@ -27,10 +35,3 @@ string Case::getcntn()
 
 void Case::modifcntnC(string s)
 { cntn=s; }
-
-/*bool Case::verifCoord(int t)
-{
-	if((x>=-t+1 || x<=t-1) && (y>=-t+1 || y<=t-1)) return true;
-
-	else return false;
-}*/
