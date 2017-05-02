@@ -1,0 +1,93 @@
+\hypertarget{classguerrier}{}\section{guerrier Class Reference}
+\label{classguerrier}\index{guerrier@{guerrier}}
+
+
+Inheritance diagram for guerrier\+:
+% FIG 0
+
+
+Collaboration diagram for guerrier\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classguerrier_add1dd2de71b5f201a3fcb19034ba2cbb}{Attack\+Base} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}attaque de base\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classguerrier_a10fd03fa9902b9a940d0b434db1fccf1}{CompD} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}competence degat 1\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classguerrier_a17bb023142307c2b653af6aa4e987b5e}{Comp\+Dp} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}competence degat plus\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{choice\+Cmp} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}choix d\textquotesingle{}une competence\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{guerrier@{guerrier}!Attack\+Base@{Attack\+Base}}
+\index{Attack\+Base@{Attack\+Base}!guerrier@{guerrier}}
+\subsubsection[{\texorpdfstring{Attack\+Base()}{AttackBase()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerrier\+::\+Attack\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerrier_add1dd2de71b5f201a3fcb19034ba2cbb}{}\label{classguerrier_add1dd2de71b5f201a3fcb19034ba2cbb}
+
+
+\mbox{[}attaque de base\mbox{]} 
+
+\mbox{[}attaque de base du guerrier en fonction d\textquotesingle{}un random entre les degats minimumet maximum\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \mbox{[}pour le random en fonction du temps\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}entier, points de degats de la competence\mbox{]} 
+\end{DoxyReturn}
+\index{guerrier@{guerrier}!choice\+Cmp@{choice\+Cmp}}
+\index{choice\+Cmp@{choice\+Cmp}!guerrier@{guerrier}}
+\subsubsection[{\texorpdfstring{choice\+Cmp()}{choiceCmp()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerrier\+::choice\+Cmp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{}\label{classguerrier_ae5a7dd269982a79d3e351afa062e376b}
+
+
+\mbox{[}choix d\textquotesingle{}une competence\mbox{]} 
+
+\mbox{[}choix d\textquotesingle{}une competence de la classe guerrier\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}un entier en fonction de l\textquotesingle{}attaque choisie\mbox{]} 
+\end{DoxyReturn}
+\index{guerrier@{guerrier}!CompD@{CompD}}
+\index{CompD@{CompD}!guerrier@{guerrier}}
+\subsubsection[{\texorpdfstring{Comp\+D()}{CompD()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerrier\+::\+CompD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerrier_a10fd03fa9902b9a940d0b434db1fccf1}{}\label{classguerrier_a10fd03fa9902b9a940d0b434db1fccf1}
+
+
+\mbox{[}competence degat 1\mbox{]} 
+
+\mbox{[}competence degat 1 du guerrier, elle utilise du mana\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}entier, points de degats de la competence\mbox{]} 
+\end{DoxyReturn}
+\index{guerrier@{guerrier}!Comp\+Dp@{Comp\+Dp}}
+\index{Comp\+Dp@{Comp\+Dp}!guerrier@{guerrier}}
+\subsubsection[{\texorpdfstring{Comp\+Dp()}{CompDp()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerrier\+::\+Comp\+Dp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerrier_a17bb023142307c2b653af6aa4e987b5e}{}\label{classguerrier_a17bb023142307c2b653af6aa4e987b5e}
+
+
+\mbox{[}competence degat plus\mbox{]} 
+
+\mbox{[}competence degat, deuxieme du nom du guerrier, elle utilise aussi du M\+A\+NA\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}et elle retourne deux attaques de base\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Perso.\+h\item 
+src/Perso.\+cpp\end{DoxyCompactItemize}

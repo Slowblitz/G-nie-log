@@ -4,7 +4,10 @@
 #include <iostream>
 using namespace std;
 
-
+/**
+ * @brief [constructeur]
+ * @details [constructeur en fonction du perso.dat]
+ */
 perso::perso()
 {
 
@@ -20,8 +23,8 @@ ifstream fichier("Perso.dat", ios::in);  // on ouvre le fichier en lecture
 		this->nom=name;
 		this->PointDeVie=PointDeVie;
 		this->PointDeMana=PointDeMana;
-		this-> DmgMin= DmgMin;
-		this-> DmgMax= DmgMax;
+		this->DmgMin=DmgMin;
+		this->DmgMax=DmgMax;
 	
         }
         else  
@@ -31,185 +34,271 @@ ifstream fichier("Perso.dat", ios::in);  // on ouvre le fichier en lecture
 }
 
 ////////////////////////////////////////////////////////////////////////
+/**
+ * @brief [retourne nom]
+ * @details [retourne le nom du perso aka joueur]
+ * @return [retourne un string]
+ */
 string perso::getname()
 {
 	return this->nom;
 }
 ////////////////////////////////////////////////////////////////////////
+/**
+ * @brief [retourne les points de vie]
+ * @details [retourne les points de vie du perso aka joueur]
+ * @return [retourne un entier]
+ */
 int perso::getPointDeVie()
 {
 	return this->PointDeVie;
 }
 ////////////////////////////////////////////////////////////////////////
+/**
+ * @brief [retourne les points de mana]
+ * @details [retourne les points de mana du perso aka joueur]
+ * @return [retourne un entier]
+ */
 int perso::getPointDeMana()
 {
 	return this->PointDeMana;
 }
 ////////////////////////////////////////////////////////////////////////
+/**
+ * @brief [retourne les degats maximum]
+ * @details [retourne les degats maximum du perso aka joueur]
+ * @return [retourne un entier]
+ */
 int perso::getDmgMax()
 {
 	return this->DmgMax;
 }
 ////////////////////////////////////////////////////////////////////////
+/**
+ * @brief [retourne les degats minimum]
+ * @details [retourne les degats minimum du perso aka joueur]
+ * @return [retourne un entier]
+ */
 int perso::getDmgMin()
 {
 	return this->DmgMin;
 }
 
-int perso::setPm(int n)
+/**
+ * @brief [modifie les points de mana]
+ * @details [modifie les points de mana du perso aka joueur a partir des couts d'une attaque]
+ * 
+ * @param n [entier, cout en mana d'un attaque]
+ */
+void perso::setPm(int n)
 {
 	this->PointDeMana=this->PointDeMana-n;
 }
 
+/**
+ * @brief [reset points de mana]
+ * @details [reset points de mana du perso aka joueur après un combat]
+ * 
+ * @param n [entier, point de mana du perso en debut de partie]
+ */
+void perso::resetPm(int n)
+{
+	this->PointDeMana=n;
+}
+
+/**
+ * @brief [modifie les points de vie]
+ * @details [modifie les points de vie du perso aka joueur a partir des degats fait par un monstre]
+ * 
+ * @param n [entier, degats fait par un monstre]
+ */
+void perso::setPv(int n)
+{
+	if(this->PointDeVie<=0) this->PointDeVie=0;
+
+	else if(this->PointDeVie>0) this->PointDeVie=this->PointDeVie-n;
+}
+
+/**
+ * @brief [reset points de vie]
+ * @details [reset points de vie du perso aka joueur après un combat]
+ * 
+ * @param n [entier, point de vie du perso en debut de partie]
+ */
+void perso::resetPv(int n)
+{
+	this->PointDeVie=n;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-
+/**
+ * @brief [attaque de base]
+ * @details [attaque de base du guerrier en fonction d'un random entre les degats minimumet maximum]
+ * 
+ * @param time [pour le random en fonction du temps]
+ * @return [entier, points de degats de la competence]
+ */
 int guerrier::AttackBase()
 {
-	int dmg;
 	srand (time(NULL));
 
-	dmg = rand() % this->DmgMax + this->DmgMin;/* generate secret number between 1 and 10: */
+	int dmg = rand() % this->getDmgMax() + this->getDmgMin();/* generate secret number between 1 and 10: */
 	dmg+=2;
-	return dmg;
 
+	return dmg;
 }
 
-
-
+/**
+ * @brief [competence degat 1]
+ * @details [competence degat 1 du guerrier, elle utilise du mana]
+ * @return [entier, points de degats de la competence]
+ */
 int guerrier::CompD()
-{	this->setPm(20);
+{	this->setPm(35);
 	int dmg=24;
 	return dmg;
-
 }
 
-int guerrier::CompDef1()
+/**
+ * @brief [competence degat plus]
+ * @details [competence degat, deuxieme du nom du guerrier, elle utilise aussi du MANA]
+ * @return [et elle retourne deux attaques de base]
+ */
+int guerrier::CompDp()
 {
+	this->setPm(20);
+	int a=this->AttackBase();
+	int b=this->AttackBase();
 
-this->AttackBase();
-this->AttackBase();
-
+	return a+b;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-int mage::AttackBase()
+/**
+ * @brief [choix d'une competence]
+ * @details [choix d'une competence de la classe guerrier]
+ * @return [un entier en fonction de l'attaque choisie]
+ */
+int guerrier::choiceCmp()
 {
-	int dmg;
-	srand (time(NULL));
+	int n=0;
+	cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
+	cout<<"                         2 - Competence 1 (degats[20] -> 35 mana)"<<endl;
+	cout<<"                         3 - Competence 2 (2xAttackBase -> 20 mana)"<<endl;
+	cin>>n;
 
-	dmg = rand() % 10 + 1;/* generate secret number between 1 and 10: */
-	return dmg;
+	if(n==1) return AttackBase();
 
+	else if(n==2 && this->getPointDeMana()>=35) return CompD();
+
+	else if(n==3 && this->getPointDeMana()>=20) return CompDp();
+
+	else
+	{ 
+		cout<<"\npas assez de mana!!!"<<endl; 
+		cout<<"PointDeMana du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
+		choiceCmp();
+	}
 }
-
-
-
-int mage::CompD()
-{	this->setPm(20);
-	int dmg=24;
-	return dmg;
-
-}
-
-int mage::CompDef1()
-{
-
-this->AttackBase();
-this->AttackBase();
-
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+/**
+ * @brief [constructeur]
+ * @details [constructeur d'un monstre en fonction du fichier Monster.dat]
+ */
 monster::monster()
 {
-
-ifstream fichier("Monster.dat", ios::in);  // on ouvre le fichier en lecture
+	ifstream fichier("Monster.dat", ios::in);  // on ouvre le fichier en lecture
  	
         if(fichier)  // si l'ouverture a réussi
-        {       
-           
-		string name;  // déclaration d'une chaîne qui contiendra la ligne lue
-		int PointDeVie,DmgMin,DmgMax;
-               	fichier >> PointDeVie >>  DmgMin >> DmgMax;
-                fichier.close();  // on ferme le fichier
-		this->PointDeVie=PointDeVie;
-		this-> DmgMin= DmgMin;
-		this-> DmgMax= DmgMax;
-	
+        {           
+			string name;  // déclaration d'une chaîne qui contiendra la ligne lue
+			int PointDeVie,DmgMin,DmgMax;
+            
+            fichier >> PointDeVie >>  DmgMin >> DmgMax;
+            fichier.close();  // on ferme le fichier
+			
+			this->PointDeVie=PointDeVie;
+			this-> DmgMin= DmgMin;
+			this-> DmgMax= DmgMax;	
         }
-        else  
-                cerr << "Impossible d'ouvrir le fichier !" << endl;
- 
-      
+        
+        else  cerr << "Impossible d'ouvrir le fichier !" << endl;      
 }
 
+/**
+ * @brief [attaque de base]
+ * @details [attaque de base du monstre, c'est d'ailleurs sa seul attaque]
+ * 
+ * @param time [description]
+ * @return [entier, degat en fonction d'un random entre ses degats minimum et maximum]
+ */
 int monster::AttackBase()
 {
-	int dmg;
 	srand (time(NULL));
 
-	dmg = rand() % this->DmgMax + this->DmgMin;/* generate secret number between 1 and 10: */
+	int  dmg = rand() % this->getDmgMax() + this->getDmgMin();/* generate secret number between 1 and 10: */
+	
 	return dmg;
-
 }
 
-
 ////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief [retourne les points de vie du monstre]
+ * @details [retourne les points de vie du monstre]
+ * @return [entier]
+ */
 int monster::getPointDeVie()
 {
 	return this->PointDeVie;
 } 
 ////////////////////////////////////////////////////////////////////////
-int monster::getDmgMax()
+
+/**
+ * @brief [retourne les degats max]
+ * @details [retourne les degats max du monstre]
+ * @return [entier]
+ */int monster::getDmgMax()
 {
 	return this->DmgMax;
 }
 ////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief [retourne les degats min]
+ * @details [retourne les degats min du monstre]
+ * @return [entier]
+ */
 int monster::getDmgMin()
 {
 	return this->DmgMin;
 }
 
+/**
+ * @brief [modifie les points de vie]
+ * @details [modifie les points de vie du monstre]
+ * 
+ * @param n [entier, issue d'une attaque du joueur]
+ */
 void monster::setPv(int n)
 {
-	this->PointDeVie=this->PointDeVie-n;
+	if(this->PointDeVie<=0) this->PointDeVie=0;
+
+	else if(this->PointDeVie>0) this->PointDeVie=this->PointDeVie-n;
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*int main(){
-
-guerrier p;
-monster m;
-
-cout<<"PointDeMana avant utilisation de la CompD : "<<p.getPointDeMana()<<endl;
-cout<<"degat CompD du guerrier : "<<p.CompD()<<endl;
-cout<<"PointDeMana apres utilisation de la CompD : "<<p.getPointDeMana()<<endl;
-
-cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
-
-m.setPv(p.CompD());
-
-cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
-
-return 0;
-
-}*/

@@ -20,7 +20,11 @@ class perso
 		int CompDef1(int);
 		int CompDef2(int);
 		int CompDef3(int);
-		int setPm(int n);
+		void setPm(int n);
+		void resetPm(int n);
+		void setPv(int n);
+		void resetPv(int n);
+
 
 };
 
@@ -34,7 +38,8 @@ class guerrier : public perso
 
 		int AttackBase();
 		int CompD();
-		int CompDef1();
+		int CompDp();
+		int choiceCmp();
 };
 
 

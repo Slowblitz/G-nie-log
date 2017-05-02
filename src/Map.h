@@ -14,13 +14,18 @@ public:
 
 	void affichage();
 	void affichageWM();
-	bool trouveJ(string s, guerrier &p, monster &m);
-	bool trouveJ(string s, mage &p, monster &m);
-	bool trouveJ(string s, guerriseur &p, monster &m);
+	bool cmptM();
+	bool trouveJ(string s, guerrier &p, monster m);
+	bool trouveJ(string s, mage &p, monster m);
+	bool trouveJ(string s, guerriseur &p, monster m);
 	bool combat(guerrier &p, monster &m);
 	bool combat(mage &p, monster &m);
 	bool combat(guerriseur &p, monster &m);
 
 	friend class Case;
+
+	//friend bool combat(guerrier &p, monster m);
 	
 };
+
+//bool combat(guerrier &p, monster m);

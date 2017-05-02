@@ -5,41 +5,48 @@ int main(int argc, char const *argv[])
 {
 	Map map(2);
 
-	//m.modifMap();
-
-	map.affichage();
-
 	guerrier p;
 	monster m;
 
-	cout<<"PointDeMana avant utilisation de la CompD : "<<p.getPointDeMana()<<endl;
-	cout<<"degat CompD du guerrier : "<<p.CompD()<<endl;
-	cout<<"PointDeMana apres utilisation de la CompD : "<<p.getPointDeMana()<<endl;
-
-	cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
-
-	m.setPv(p.CompD());
-
-	cout<<"PointDeVie du monstre : "<<m.getPointDeVie()<<endl;
-
-	map.affichageWM();
+	map.affichage();
 
 
 	string s;
+	bool cdn;
 
 	
-	while(1)
+	do
 	{
 		do
 		{
-			cout<<"choisissez une direction (haut -> h / bas -> b / gauche -> g / droite -> d)"<<endl;
+			cout<<"choisissez une direction (haut -> h ou z / bas -> b ou s / gauche -> g ou q / droite -> d)"<<endl;
 			cin>>s;
 
-			system("clear");	
-		}while(!map.trouveJ(s, p, m));
+			system("clear");
+
+			cdn=map.trouveJ(s,p,m);
+
+		}while((!cdn && p.getPointDeVie()>0) /*|| !cdn*/);
+
+		if(p.getPointDeVie()<=0)
+		{
+			cout<<"GAME OVER!!!"<<endl;
+
+			exit(1);
+		}
+
+		else if(map.cmptM())
+		{
+			cout<<"Vous Avez Gagnez!!!"<<endl;
+
+			exit(1);
+		}
 
 		map.affichage();
-	}
+
+
+
+	}while(1); /////  faire fonction nb monstre 
 
 	return 0;
 

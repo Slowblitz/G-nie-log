@@ -1,0 +1,152 @@
+\hypertarget{class_map}{}\section{Map Class Reference}
+\label{class_map}\index{Map@{Map}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_map_a18c4777be15d4d5080da8dbf7e549207}{Map} (int n)
+\begin{DoxyCompactList}\small\item\em \mbox{[}constrcteur\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{class_map_a3426a949e89c1808e2a359fb125635ac}{affichage} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}affichage\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{class_map_a1405dd0cf769dc6b37a44c68c27e57b8}{affichage\+WM} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}affichage\mbox{]} \end{DoxyCompactList}\item 
+bool \hyperlink{class_map_a7744f9a658937dbbe1b0d35ae6a56a95}{cmptM} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}compteur de monstre\mbox{]} \end{DoxyCompactList}\item 
+bool \hyperlink{class_map_a382f1040f930d601c907997453a63cf9}{trouveJ} (string s, \hyperlink{classguerrier}{guerrier} \&p, \hyperlink{classmonster}{monster} m)
+\begin{DoxyCompactList}\small\item\em \mbox{[}trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé\mbox{]} \end{DoxyCompactList}\item 
+bool {\bfseries trouveJ} (string s, \hyperlink{classmage}{mage} \&p, \hyperlink{classmonster}{monster} m)\hypertarget{class_map_a0e99e7c9b7df51ca5e6c282125fb5345}{}\label{class_map_a0e99e7c9b7df51ca5e6c282125fb5345}
+
+\item 
+bool {\bfseries trouveJ} (string s, \hyperlink{classguerriseur}{guerriseur} \&p, \hyperlink{classmonster}{monster} m)\hypertarget{class_map_a6cd77f26e2700bd2492a90d83ed354cd}{}\label{class_map_a6cd77f26e2700bd2492a90d83ed354cd}
+
+\item 
+bool \hyperlink{class_map_ad44b2f767e5bdeced4c239ef508ac079}{combat} (\hyperlink{classguerrier}{guerrier} \&p, \hyperlink{classmonster}{monster} \&m)
+\begin{DoxyCompactList}\small\item\em \mbox{[}lance un combat entre le joueur et un monstre\mbox{]} \end{DoxyCompactList}\item 
+bool {\bfseries combat} (\hyperlink{classmage}{mage} \&p, \hyperlink{classmonster}{monster} \&m)\hypertarget{class_map_a2be7c0634b6675b585e0df0cbabc1f65}{}\label{class_map_a2be7c0634b6675b585e0df0cbabc1f65}
+
+\item 
+bool {\bfseries combat} (\hyperlink{classguerriseur}{guerriseur} \&p, \hyperlink{classmonster}{monster} \&m)\hypertarget{class_map_ab036e47591672990a3a474f946a4363a}{}\label{class_map_ab036e47591672990a3a474f946a4363a}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Case}\hypertarget{class_map_a8162a4e0d885beccd1b1d04a69a20577}{}\label{class_map_a8162a4e0d885beccd1b1d04a69a20577}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection[{\texorpdfstring{Map(int n)}{Map(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}Map\+::\+Map (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a18c4777be15d4d5080da8dbf7e549207}{}\label{class_map_a18c4777be15d4d5080da8dbf7e549207}
+
+
+\mbox{[}constrcteur\mbox{]} 
+
+\mbox{[}construction de la map en utilisant un fichier .dat\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{[}\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Map@{Map}!affichage@{affichage}}
+\index{affichage@{affichage}!Map@{Map}}
+\subsubsection[{\texorpdfstring{affichage()}{affichage()}}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::affichage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a3426a949e89c1808e2a359fb125635ac}{}\label{class_map_a3426a949e89c1808e2a359fb125635ac}
+
+
+\mbox{[}affichage\mbox{]} 
+
+\mbox{[}affichage avec monstres en parcourant le tableau ,pour les besoins du dev\mbox{]} \index{Map@{Map}!affichage\+WM@{affichage\+WM}}
+\index{affichage\+WM@{affichage\+WM}!Map@{Map}}
+\subsubsection[{\texorpdfstring{affichage\+W\+M()}{affichageWM()}}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::affichage\+WM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a1405dd0cf769dc6b37a44c68c27e57b8}{}\label{class_map_a1405dd0cf769dc6b37a44c68c27e57b8}
+
+
+\mbox{[}affichage\mbox{]} 
+
+\mbox{[}affichage sans monstres en parcourant le tableau\mbox{]} \index{Map@{Map}!cmptM@{cmptM}}
+\index{cmptM@{cmptM}!Map@{Map}}
+\subsubsection[{\texorpdfstring{cmpt\+M()}{cmptM()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Map\+::cmptM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a7744f9a658937dbbe1b0d35ae6a56a95}{}\label{class_map_a7744f9a658937dbbe1b0d35ae6a56a95}
+
+
+\mbox{[}compteur de monstre\mbox{]} 
+
+\mbox{[}compte les monstres restant sur la map\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}retourne true s\textquotesingle{}il ne reste aucun monstre sinon false\mbox{]} 
+\end{DoxyReturn}
+\index{Map@{Map}!combat@{combat}}
+\index{combat@{combat}!Map@{Map}}
+\subsubsection[{\texorpdfstring{combat(guerrier \&p, monster \&m)}{combat(guerrier &p, monster &m)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Map\+::combat (
+\begin{DoxyParamCaption}
+\item[{{\bf guerrier} \&}]{p, }
+\item[{{\bf monster} \&}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_ad44b2f767e5bdeced4c239ef508ac079}{}\label{class_map_ad44b2f767e5bdeced4c239ef508ac079}
+
+
+\mbox{[}lance un combat entre le joueur et un monstre\mbox{]} 
+
+\mbox{[}lance un combat entre le joueur et un monstre, il y a un random pour choisir qui commence\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \mbox{[}joueur\mbox{]} \\
+\hline
+{\em m} & \mbox{[}monstre\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}retourne true si le joueur gagne sinon false\mbox{]} 
+\end{DoxyReturn}
+\index{Map@{Map}!trouveJ@{trouveJ}}
+\index{trouveJ@{trouveJ}!Map@{Map}}
+\subsubsection[{\texorpdfstring{trouve\+J(string s, guerrier \&p, monster m)}{trouveJ(string s, guerrier &p, monster m)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Map\+::trouveJ (
+\begin{DoxyParamCaption}
+\item[{string}]{s, }
+\item[{{\bf guerrier} \&}]{p, }
+\item[{{\bf monster}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a382f1040f930d601c907997453a63cf9}{}\label{class_map_a382f1040f930d601c907997453a63cf9}
+
+
+\mbox{[}trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé\mbox{]} 
+
+\mbox{[}trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{[}chaine de caractere pour la direction\mbox{]} \\
+\hline
+{\em p} & \mbox{[}joueur\mbox{]} \\
+\hline
+{\em m} & \mbox{[}monstre\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}retourne true si le déplacement est réalisé et si est tué sinon false si impossible de se déplacer ou si le joueur meurt\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Map.\+h\item 
+src/Map.\+cpp\end{DoxyCompactItemize}

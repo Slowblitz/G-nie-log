@@ -12,19 +12,15 @@ using namespace std;
 
 class Case
 {
-	int x, y,ini;
+	int x, y;
 	string cntn;		//contenu de la case
 
 public:
 
 	Case();
-	Case(int a, int b);
-	Case(int a, int b, int i, char s);
+	Case(int a, int b, char s);
 
-	int getx();
-	int gety();
 	string getcntn();
-
 	void modifcntnC(string s);
 
 	friend class Plateau;
