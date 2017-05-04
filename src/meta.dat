@@ -1,0 +1,34 @@
+guerrier
+
+PV 100         		PM 100
+degatMax+2 			degatMin                
+
+[degatMin/degatMax]			0
+24        					35
+2x[degatMin/degatMax]       20
+
+
+
+
+mage
+
+PV 100           	PM 100
+degatMax			degatMin               
+
+40-80        70
++5/+50        15
+
+
+
+guerisseur
+PV 100           	PM 100
+degatMax			degatMin               
+//vol de vie
+//vol de mana
+
+
+monstre
+PV 100
+degatMax			degatMin
+
+[degatMin/degatMax]

@@ -1,5 +1,10 @@
 #include "Map.h"
 
+string tree="\033[1m\033[32m*\033[0;m";
+string water="\033[1m\033[34m~\033[0;m";
+string montain="\033[1m\033[33m^\033[0;m";
+string player="\033[1m\033[31mJ\033[0;m";
+
 /**
  * @brief [constrcteur]
  * @details [construction de la map en utilisant un fichier .dat]
@@ -21,7 +26,7 @@ Map::Map(int n)
 
     	taille=t;
 
-    	//cerr<<t<<endl;
+    	//cout<<t<<endl;
 	
 		mp=new Case*[taille];
 
@@ -40,7 +45,7 @@ Map::Map(int n)
 		}
 
 	}
-	else cerr<<"erreur";
+	else cout<<"erreur";
 }
 
 /**
@@ -51,29 +56,52 @@ void Map::affichage()
 {
 	for(int o=0; o<taille+1; o++)
 	{
-		if(o==taille-1)cerr<<"-";
-		else cerr<<"--";
+		if(o==taille-1)cout<<"-";
+		else cout<<"--";
 	}
-		cerr<<endl;
+		cout<<endl;
 	
 	for(int i=0; i<taille; i++)
 	{	
 		
 		for(int j=0; j<taille; j++)
 		{
-			if(j==0)cerr<<"|"<<mp[i][j].getcntn()<<" ";
-			else if(j==taille-1)cerr<<""<<mp[i][j].getcntn();
-			else cerr<<""<<mp[i][j].getcntn()<<" ";
+			if(j==0)
+			{
+				if(mp[i][j].getcntn()=="J") cout<<"|"<<player<<" ";
+				else if(mp[i][j].getcntn()=="*") cout<<"|"<<tree<<" ";
+				else if(mp[i][j].getcntn()=="^") cout<<"|"<<montain<<" ";
+				else if(mp[i][j].getcntn()=="~") cout<<"|"<<water<<" ";
+				else cout<<"|"<<mp[i][j].getcntn()<<" ";
+			} 
+
+			else if(j==taille-1)
+			{
+				if(mp[i][j].getcntn()=="J") cout<<player;
+				else if(mp[i][j].getcntn()=="*") cout<<tree;
+				else if(mp[i][j].getcntn()=="^") cout<<montain;
+				else if(mp[i][j].getcntn()=="~") cout<<water;
+				else cout<<mp[i][j].getcntn();
+			}
+
+			else 
+			{
+				if(mp[i][j].getcntn()=="J") cout<<player<<" ";
+				else if(mp[i][j].getcntn()=="*") cout<<tree<<" ";
+				else if(mp[i][j].getcntn()=="^") cout<<montain<<" ";
+				else if(mp[i][j].getcntn()=="~") cout<<water<<" ";
+				else cout<<mp[i][j].getcntn()<<" ";
+			}
 		}
 
-		cerr<<"|"<<endl;
+		cout<<"|"<<endl;
 	}
 	for(int o=0; o<taille+1; o++)
 	{
-		if(o==taille-1)cerr<<"-";
-		else cerr<<"--";
+		if(o==taille-1)cout<<"-";
+		else cout<<"--";
 	}
-		cerr<<endl;
+		cout<<endl;
 }
 
 /**
@@ -84,10 +112,10 @@ void Map::affichageWM()
 {
 	for(int o=0; o<taille+1; o++)
 	{
-		if(o==taille-1)cerr<<"-";
-		else cerr<<"--";
+		if(o==taille-1)cout<<"-";
+		else cout<<"--";
 	}
-		cerr<<endl;
+		cout<<endl;
 	
 	for(int i=0; i<taille; i++)
 	{	
@@ -96,31 +124,43 @@ void Map::affichageWM()
 		{
 			if(j==0)
 			{
-				if(mp[i][j].getcntn()=="M")cerr<<"|"<<" "<<" ";
-				else cerr<<"|"<<mp[i][j].getcntn()<<" ";
+				if(mp[i][j].getcntn()=="J") cout<<"|"<<player<<" ";
+				else if(mp[i][j].getcntn()=="M")cout<<"|"<<" "<<" ";
+				else if(mp[i][j].getcntn()=="*") cout<<"|"<<tree<<" ";
+				else if(mp[i][j].getcntn()=="^") cout<<"|"<<montain<<" ";
+				else if(mp[i][j].getcntn()=="~") cout<<"|"<<water<<" ";
+				else cout<<"|"<<mp[i][j].getcntn()<<" ";
 			}
 
 			else if(j==taille-1)
 			{
-				if(mp[i][j].getcntn()=="M")cerr<<" ";
-				else cerr<<mp[i][j].getcntn();
+				if(mp[i][j].getcntn()=="J") cout<<player;
+				else if(mp[i][j].getcntn()=="M")cout<<" ";
+				else if(mp[i][j].getcntn()=="*") cout<<tree;
+				else if(mp[i][j].getcntn()=="^") cout<<montain;
+				else if(mp[i][j].getcntn()=="~") cout<<water;
+				else cout<<mp[i][j].getcntn();
 			}
 
 			else 
 			{
-				if(mp[i][j].getcntn()=="M")cerr<<" "<<" ";
-				else cerr<<mp[i][j].getcntn()<<" ";
+				if(mp[i][j].getcntn()=="J") cout<<player<<" ";
+				else if(mp[i][j].getcntn()=="M")cout<<" "<<" ";
+				else if(mp[i][j].getcntn()=="*") cout<<tree<<" ";
+				else if(mp[i][j].getcntn()=="^") cout<<montain<<" ";
+				else if(mp[i][j].getcntn()=="~") cout<<water<<" ";
+				else cout<<mp[i][j].getcntn()<<" ";
 			}
 		}
 
-		cerr<<"|"<<endl;
+		cout<<"|"<<endl;
 	}
 	for(int o=0; o<taille+1; o++)
 	{
-		if(o==taille-1)cerr<<"-";
-		else cerr<<"--";
+		if(o==taille-1)cout<<"-";
+		else cout<<"--";
 	}
-		cerr<<endl;
+		cout<<endl;
 }
 
 /**
@@ -155,7 +195,7 @@ bool Map::cmptM()
  * @param m [monstre]
  * @return [retourne true si le déplacement est réalisé et si est tué sinon false si impossible de se déplacer ou si le joueur meurt]
  */
-bool Map::trouveJ(string s, guerrier &p, monster m)
+/*bool Map::trouveJ(string s, mage &p, monster m)
 {
 	for (int i=0; i < taille+1; i++)
 	{
@@ -297,7 +337,205 @@ bool Map::trouveJ(string s, guerrier &p, monster m)
 
 				else return false;
 			}
-			//mp[i][j].modifcntnC("B");
+		}
+	}
+}*/
+
+/**
+ * @brief [lance un combat entre le joueur et un monstre]
+ * @details [lance un combat entre le joueur et un monstre, il y a un random pour choisir qui commence]
+ * 
+ * @param p [joueur]
+ * @param m [monstre]
+ * 
+ * @return [retourne true si le joueur gagne sinon false]
+ */
+/*bool Map::combat(guerrier &p, monster &m)
+{
+	srand (time(NULL));
+	int rnd=rand() % 2 + 1;
+
+	while(p.getPointDeVie()>0 && m.getPointDeVie()>0)
+	{		
+		if(rnd==1)	//le joueur joue
+		{
+			cout<<"A vous de jouez\n"<<endl;
+
+			m.setPv(p.choiceCmp());
+
+			if(m.getPointDeVie()>=0) cout<<"\nPV Monstre: "<<m.getPointDeVie()<<"\n"<<endl;
+
+			rnd=2;
+
+			
+		}
+
+		else if(rnd==2)	//le monstre joue
+		{
+			cout<<"le monstre joue\n"<<endl;
+
+			p.setPv(m.AttackBase());		//le monstre joue et enleve les points de vie au joueur
+
+			if(p.getPointDeVie()>=0) cout<<"PV Joueur: "<<p.getPointDeVie()<<" \nPM joueur: "<<p.getPointDeMana()<<"\n"<<endl;
+
+			rnd=1;
+		}
+	}
+
+	if(m.getPointDeVie()<=0)
+	{
+		p.resetPv(100);
+		p.resetPm(100);
+		
+		return true;	
+	} 
+
+	else if(p.getPointDeVie()<=0) return false;
+}*/
+
+
+bool Map::trouveJ(string s, perso &p, monster m) 
+{
+	for (int i=0; i < taille+1; i++)
+	{
+		for (int j=0; j < taille; j++)
+		{
+			if(mp[i][j].getcntn()=="J")
+			{
+				if(s=="h" || s=="z")
+				{
+					if(i>0 && i<taille)
+					{
+						if(mp[i-1][j].getcntn()=="*" || mp[i-1][j].getcntn()=="^" || mp[i-1][j].getcntn()=="~") return false;
+
+						else if(mp[i-1][j].getcntn()=="M")
+						{
+							bool o=this->combat(p,m);
+
+							if(o)
+							{
+								mp[i-1][j].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
+						}
+						
+						else
+						{
+							mp[i-1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="b" || s=="s")
+				{
+					if(i>=0 && i<taille-1)
+					{
+						if(mp[i+1][j].getcntn()=="*" || mp[i+1][j].getcntn()=="^" || mp[i+1][j].getcntn()=="~") return false;
+
+						else if(mp[i+1][j].getcntn()=="M")
+						{
+							bool o=this->combat(p,m);
+
+							if(o)
+							{
+								mp[i+1][j].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
+						}
+						
+						else
+						{
+							mp[i+1][j].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="g" || s=="q")
+				{
+					if(j>0 && j<taille)
+					{
+						if(mp[i][j-1].getcntn()=="*" || mp[i][j-1].getcntn()=="^" || mp[i][j-1].getcntn()=="~") return false;
+
+						else if(mp[i][j-1].getcntn()=="M")
+						{
+							bool o=this->combat(p,m);
+
+							if(o)
+							{
+								mp[i][j-1].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
+						}
+						
+						else
+						{
+							mp[i][j-1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else if(s=="d")
+				{
+					if(j>=0 && j<taille-1)
+					{
+						if(mp[i][j+1].getcntn()=="*" || mp[i][j+1].getcntn()=="^" || mp[i][j+1].getcntn()=="~") return false;
+
+						else if(mp[i][j+1].getcntn()=="M")
+						{
+							bool o=this->combat(p,m);
+
+							if(o)
+							{
+								mp[i][j+1].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
+						}
+						
+						else
+						{
+							mp[i][j+1].modifcntnC("J");
+							mp[i][j].modifcntnC(" ");
+
+							return true;
+						}
+					}
+
+					else return false;
+				}
+
+				else return false;
+			}
 		}
 	}
 }
@@ -311,7 +549,7 @@ bool Map::trouveJ(string s, guerrier &p, monster m)
  * 
  * @return [retourne true si le joueur gagne sinon false]
  */
-bool Map::combat(guerrier &p, monster &m)
+bool Map::combat(perso &p, monster &m)
 {
 	srand (time(NULL));
 	int rnd=rand() % 2 + 1;
@@ -354,8 +592,16 @@ bool Map::combat(guerrier &p, monster &m)
 	else if(p.getPointDeVie()<=0) return false;
 }
 
-
-bool Map::trouveJ(string s, mage &p, monster m)
+/**
+ * @brief [trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé]
+ * @details [trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé]
+ * 
+ * @param s [chaine de caractere pour la direction]
+ * @param p [joueur]
+ * @param m [monstre]
+ * @return [retourne true si le déplacement est réalisé et si est tué sinon false si impossible de se déplacer ou si le joueur meurt]
+ */
+/*bool Map::trouveJ(string s, guerrier &p, monster m)
 {
 	for (int i=0; i < taille+1; i++)
 	{
@@ -363,7 +609,7 @@ bool Map::trouveJ(string s, mage &p, monster m)
 		{
 			if(mp[i][j].getcntn()=="J")
 			{
-				if(s=="h" || s=="^[[A")
+				if(s=="h" || s=="z")
 				{
 					if(i>0 && i<taille)
 					{
@@ -371,7 +617,17 @@ bool Map::trouveJ(string s, mage &p, monster m)
 
 						else if(mp[i-1][j].getcntn()=="M")
 						{
+							bool o=this->combat(p,m);
 
+							if(o)
+							{
+								mp[i-1][j].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
 						}
 						
 						else
@@ -386,7 +642,7 @@ bool Map::trouveJ(string s, mage &p, monster m)
 					else return false;
 				}
 
-				else if(s=="b" || s=="^[[B")
+				else if(s=="b" || s=="s")
 				{
 					if(i>=0 && i<taille-1)
 					{
@@ -394,7 +650,17 @@ bool Map::trouveJ(string s, mage &p, monster m)
 
 						else if(mp[i+1][j].getcntn()=="M")
 						{
+							bool o=this->combat(p,m);
 
+							if(o)
+							{
+								mp[i+1][j].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
 						}
 						
 						else
@@ -409,7 +675,7 @@ bool Map::trouveJ(string s, mage &p, monster m)
 					else return false;
 				}
 
-				else if(s=="g" || s=="^[[D")
+				else if(s=="g" || s=="q")
 				{
 					if(j>0 && j<taille)
 					{
@@ -417,7 +683,17 @@ bool Map::trouveJ(string s, mage &p, monster m)
 
 						else if(mp[i][j-1].getcntn()=="M")
 						{
+							bool o=this->combat(p,m);
 
+							if(o)
+							{
+								mp[i][j-1].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
 						}
 						
 						else
@@ -432,7 +708,7 @@ bool Map::trouveJ(string s, mage &p, monster m)
 					else return false;
 				}
 
-				else if(s=="d" || s=="^[[C")
+				else if(s=="d")
 				{
 					if(j>=0 && j<taille-1)
 					{
@@ -440,7 +716,17 @@ bool Map::trouveJ(string s, mage &p, monster m)
 
 						else if(mp[i][j+1].getcntn()=="M")
 						{
+							bool o=this->combat(p,m);
 
+							if(o)
+							{
+								mp[i][j+1].modifcntnC("J");
+								mp[i][j].modifcntnC(" ");
+
+								return true;
+							}
+
+							else return false;
 						}
 						
 						else
@@ -457,118 +743,58 @@ bool Map::trouveJ(string s, mage &p, monster m)
 
 				else return false;
 			}
-			//mp[i][j].modifcntnC("B");
 		}
 	}
-}
+}*/
 
-bool Map::trouveJ(string s, guerriseur &p, monster m)
+/**
+ * @brief [lance un combat entre le joueur et un monstre]
+ * @details [lance un combat entre le joueur et un monstre, il y a un random pour choisir qui commence]
+ * 
+ * @param p [joueur]
+ * @param m [monstre]
+ * 
+ * @return [retourne true si le joueur gagne sinon false]
+ */
+/*bool Map::combat(guerrier &p, monster &m)
 {
-	for (int i=0; i < taille+1; i++)
-	{
-		for (int j=0; j < taille; j++)
+	srand (time(NULL));
+	int rnd=rand() % 2 + 1;
+
+	while(p.getPointDeVie()>0 && m.getPointDeVie()>0)
+	{		
+		if(rnd==1)	//le joueur joue
 		{
-			if(mp[i][j].getcntn()=="J")
-			{
-				if(s=="h" || s=="^[[A")
-				{
-					if(i>0 && i<taille)
-					{
-						if(mp[i-1][j].getcntn()=="*" || mp[i-1][j].getcntn()=="^" || mp[i-1][j].getcntn()=="~") return false;
+			cout<<"A vous de jouez\n"<<endl;
 
-						else if(mp[i-1][j].getcntn()=="M")
-						{
+			m.setPv(p.choiceCmp());
 
-						}
-						
-						else
-						{
-							mp[i-1][j].modifcntnC("J");
-							mp[i][j].modifcntnC(" ");
+			if(m.getPointDeVie()>=0) cout<<"\nPV Monstre: "<<m.getPointDeVie()<<"\n"<<endl;
 
-							return true;
-						}
-					}
+			rnd=2;
 
-					else return false;
-				}
+			
+		}
 
-				else if(s=="b" || s=="^[[B")
-				{
-					if(i>=0 && i<taille-1)
-					{
-						if(mp[i+1][j].getcntn()=="*" || mp[i+1][j].getcntn()=="^" || mp[i+1][j].getcntn()=="~") return false;
+		else if(rnd==2)	//le monstre joue
+		{
+			cout<<"le monstre joue\n"<<endl;
 
-						else if(mp[i+1][j].getcntn()=="M")
-						{
+			p.setPv(m.AttackBase());		//le monstre joue et enleve les points de vie au joueur
 
-						}
-						
-						else
-						{
-							mp[i+1][j].modifcntnC("J");
-							mp[i][j].modifcntnC(" ");
+			if(p.getPointDeVie()>=0) cout<<"PV Joueur: "<<p.getPointDeVie()<<" \nPM joueur: "<<p.getPointDeMana()<<"\n"<<endl;
 
-							return true;
-						}
-					}
-
-					else return false;
-				}
-
-				else if(s=="g" || s=="^[[D")
-				{
-					if(j>0 && j<taille)
-					{
-						if(mp[i][j-1].getcntn()=="*" || mp[i][j-1].getcntn()=="^" || mp[i][j-1].getcntn()=="~") return false;
-
-						else if(mp[i][j-1].getcntn()=="M")
-						{
-
-						}
-						
-						else
-						{
-							mp[i][j-1].modifcntnC("J");
-							mp[i][j].modifcntnC(" ");
-
-							return true;
-						}
-					}
-
-					else return false;
-				}
-
-				else if(s=="d" || s=="^[[C")
-				{
-					if(j>=0 && j<taille-1)
-					{
-						if(mp[i][j+1].getcntn()=="*" || mp[i][j+1].getcntn()=="^" || mp[i][j+1].getcntn()=="~") return false;
-
-						else if(mp[i][j+1].getcntn()=="M")
-						{
-
-						}
-						
-						else
-						{
-							mp[i][j+1].modifcntnC("J");
-							mp[i][j].modifcntnC(" ");
-
-							return true;
-						}
-					}
-
-					else return false;
-				}
-
-				else return false;
-			}
-			//mp[i][j].modifcntnC("B");
+			rnd=1;
 		}
 	}
-}
 
+	if(m.getPointDeVie()<=0)
+	{
+		p.resetPv(100);
+		p.resetPm(100);
+		
+		return true;	
+	} 
 
-
-
+	else if(p.getPointDeVie()<=0) return false;
+}*/
