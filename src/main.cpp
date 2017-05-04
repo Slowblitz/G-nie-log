@@ -1,23 +1,23 @@
 #include "Map.h"
 #include "Perso.h"
+//#include <conio.h>
 
 int main(int argc, char const *argv[])
 {
 	int n=0,m=0;
 
-
-	perso *player;
 	Map *map;
+	perso *player;	
 
 	cout<<"Bienvenu dans notre jeu E-gam"<<endl;
 	cout<<"choisissez une carte:   1 -> map1 (10*10)"<<endl;
-	cout<<"                        2 -> map2 (25*25)"<<endl;
+	cout<<"                        2 -> map2 (30*30)"<<endl;
 	cout<<"                        3 -> map3 (50*50)"<<endl;
 	cin>>n;
 
 	if(n==1) map=new Map("map1.dat");
-	else if(n==2) map=new Map("map1.dat");
-	else if(n==3) map=new Map("map1.dat");
+	else if(n==2) map=new Map("map2.dat");
+	else if(n==3) map=new Map("map3.dat");
 
 	cout<<"choisissez une classe:   1 -> guerrier"<<endl;
 	cout<<"                         2 -> mage"<<endl;
@@ -29,7 +29,8 @@ int main(int argc, char const *argv[])
 	else if(m==3) player=new guerriseur();
 
 	monster monster;
-//player = new guerrier();
+
+	system("clear");
 	map->affichageWM();
 
 
@@ -44,6 +45,8 @@ int main(int argc, char const *argv[])
 		{
 			cout<<"choisissez une direction (haut -> h ou z / bas -> b ou s / gauche -> g ou q / droite -> d)"<<endl;
 			cin>>s;
+
+			//s=getche();
 
 			system("clear");
 
