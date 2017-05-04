@@ -8,7 +8,7 @@
  */
 Map::Map(int n)
 {
-	ifstream fichier("map1.txt",ios::in);
+	ifstream fichier("map1.dat",ios::in);
     
     if(fichier)
     {
