@@ -184,7 +184,11 @@ int guerrier::CompDp()
  * @return [un entier en fonction de l'attaque choisie]
  */
 int guerrier::choiceCmp()
-{
+{	
+	srand (time(NULL));
+
+	int rnd = rand() % 3 + 1;
+
 	int n=0;
 	cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
 	cout<<"                         2 - Competence 1 (degats[20] -> 35 mana)"<<endl;
@@ -199,8 +203,10 @@ int guerrier::choiceCmp()
 
 	else
 	{ 
-		cout<<"\npas assez de mana!!!"<<endl; 
-		cout<<"PointDeMana du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
+		if(rnd==1) cout<<"\npas assez de mana!!!"<<endl; 
+		else if(rnd==2) cout<<"\nil me faut plus de mana!!!"<<endl;
+		else if(rnd==3) cout<<"\nAllo Huston, nous avons un probleme, j'ai plus de MANA!!!"<<endl;
+		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
 		choiceCmp();
 	}
 }

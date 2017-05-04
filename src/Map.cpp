@@ -324,7 +324,7 @@ bool Map::combat(guerrier &p, monster &m)
 
 			m.setPv(p.choiceCmp());
 
-			if(m.getPointDeVie()>=0) cout<<"\nPointDeVie du monstre: "<<m.getPointDeVie()<<"\n"<<endl;
+			if(m.getPointDeVie()>=0) cout<<"\nPV Monstre: "<<m.getPointDeVie()<<"\n"<<endl;
 
 			rnd=2;
 

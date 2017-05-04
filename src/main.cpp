@@ -26,10 +26,11 @@ int main(int argc, char const *argv[])
 
 			cdn=map.trouveJ(s,p,m);
 
-		}while((!cdn && p.getPointDeVie()>0) /*|| !cdn*/);
+		}while(!cdn && p.getPointDeVie()>0);
 
 		if(p.getPointDeVie()<=0)
 		{
+			system("clear");
 			cout<<"GAME OVER!!!"<<endl;
 
 			exit(1);
@@ -37,16 +38,18 @@ int main(int argc, char const *argv[])
 
 		else if(map.cmptM())
 		{
+			system("clear");
 			cout<<"Vous Avez Gagnez!!!"<<endl;
 
 			exit(1);
 		}
 
+		system("clear");
 		map.affichage();
 
 
 
-	}while(1); /////  faire fonction nb monstre 
+	}while(1); 
 
 	return 0;
 
