@@ -7,7 +7,7 @@ int main(int argc, char const *argv[])
 
 
 	perso *player;
-	Map map(1);
+	Map *map;
 
 	cout<<"Bienvenu dans notre jeu E-gam"<<endl;
 	cout<<"choisissez une carte:   1 -> map1 (10*10)"<<endl;
@@ -15,9 +15,9 @@ int main(int argc, char const *argv[])
 	cout<<"                        3 -> map3 (50*50)"<<endl;
 	cin>>n;
 
-	if(n==1) Map map(2);
-	else if(n==2) Map map(2);
-	else if(n==3) Map map(2);
+	if(n==1) map=new Map("map1.dat");
+	else if(n==2) map=new Map("map1.dat");
+	else if(n==3) map=new Map("map1.dat");
 
 	cout<<"choisissez une classe:   1 -> guerrier"<<endl;
 	cout<<"                         2 -> mage"<<endl;
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 
 	monster monster;
 //player = new guerrier();
-	map.affichageWM();
+	map->affichageWM();
 
 
 	string s;
@@ -47,7 +47,7 @@ int main(int argc, char const *argv[])
 
 			system("clear");
 
-			cdn=map.trouveJ(s,*player,monster);
+			cdn=map->trouveJ(s,*player,monster);
 
 		}while(!cdn && player->getPointDeVie()>0);
 
@@ -59,16 +59,16 @@ int main(int argc, char const *argv[])
 			exit(1);
 		}
 
-		else if(map.cmptM())
+		else if(map->cmptM())
 		{
 			system("clear");
-			cout<<"Vous Avez Gagnez!!!"<<endl;
+			cout<<"Vous Avez Gagner!!!"<<endl;
 
 			exit(1);
 		}
 
 		system("clear");
-		map.affichageWM();
+		map->affichageWM();
 
 
 

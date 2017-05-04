@@ -11,9 +11,9 @@ string player="\033[1m\033[31mJ\033[0;m";
  * 
  * @param n []
  */
-Map::Map(int n)
+Map::Map(string s)
 {
-	ifstream fichier("map1.dat",ios::in);
+	ifstream fichier(s.c_str(),ios::in);
     
     if(fichier)
     {
@@ -558,7 +558,7 @@ bool Map::combat(perso &p, monster &m)
 	{		
 		if(rnd==1)	//le joueur joue
 		{
-			cout<<"A vous de jouez\n"<<endl;
+			cout<<"A vous de jouer\n"<<endl;
 
 			m.setPv(p.choiceCmp());
 

@@ -10,7 +10,7 @@ class Map
 
 public:
 
-	Map(int n);
+	Map(string s);
 
 	void affichage();
 	void affichageWM();

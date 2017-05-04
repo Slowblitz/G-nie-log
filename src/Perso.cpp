@@ -371,9 +371,9 @@ int guerriseur::CompD()
 {	
 	srand (time(NULL));
 
-	this->setPm(70);
+	this->setPm(35);
 
-	int dmg = rand() % this->getDmgMax()*4 + this->getDmgMax()*4;
+	int dmg = rand() % this->getDmgMax()*2 + this->getDmgMax()*2;
 
 	cout<<"Vos dmg: "<<dmg<<endl;
 	
@@ -389,13 +389,13 @@ int guerriseur::CompDef1()
 {
 	srand (time(NULL));
 
-	this->setPm(15);
+	this->setPm(10);
 
-	int manaP = rand() % (this->getDmgMax()*5) + (this->getDmgMax()/2);
+	int vieP = rand() % (this->getDmgMax()*2) + this->getDmgMax();
 
-	cout<<"PM ajouté: "<<manaP<<endl;
+	cout<<"PV ajouté: "<<vieP<<endl;
 	
-	this->setPmP(manaP);
+	this->setPvP(vieP);
 
 	return 0;
 }
@@ -413,15 +413,15 @@ int guerriseur::choiceCmp()
 
 	int n=0;
 	cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
-	cout<<"                         2 - Competence 1 (degats["<<this->getDmgMax()*4<<"/"<<this->getDmgMax()*8<<"] -> 70 mana)"<<endl;
-	cout<<"                         3 - Competence 2 (ajout PM["<<this->getDmgMax()/2<<"/"<<this->getDmgMax()*5<<"]  -> 15 mana)"<<endl;
+	cout<<"                         2 - Competence 1 (degats["<<this->getDmgMax()*2<<"/"<<this->getDmgMax()*4<<"] -> 35 mana)"<<endl;
+	cout<<"                         3 - Competence 2 (ajout PV["<<this->getDmgMax()<<"/"<<this->getDmgMax()*3<<"]  -> 10 mana)"<<endl;
 	cin>>n;
 
 	if(n==1) return AttackBase();
 
-	else if(n==2 && this->getPointDeMana()>=70) return CompD();
+	else if(n==2 && this->getPointDeMana()>=35) return CompD();
 
-	else if(n==3 && this->getPointDeMana()>=15) return CompDef1();
+	else if(n==3 && this->getPointDeMana()>=10) return CompDef1();
 
 	else
 	{ 
