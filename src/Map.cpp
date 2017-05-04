@@ -579,6 +579,8 @@ bool Map::combat(perso &p, monster &m)
 
 			rnd=1;
 		}
+
+		cout<<"----------------------------------------------------------------------------"<<endl;
 	}
 
 	if(m.getPointDeVie()<=0)
