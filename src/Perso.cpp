@@ -1,4 +1,5 @@
 #include "Perso.h"
+#include "Map.h"
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -10,81 +11,67 @@ using namespace std;
  */
 perso::perso()
 {
-
-ifstream fichier("Perso.dat", ios::in);  // on ouvre le fichier en lecture
+	ifstream fichier("Perso.dat", ios::in);  // on ouvre le fichier en lecture
  	
         if(fichier)  // si l'ouverture a réussi
-        {       
-           
-		string name;  // déclaration d'une chaîne qui contiendra la ligne lue
-		int PointDeVie,PointDeMana,DmgMin,DmgMax;
-               	fichier >> name >> PointDeVie >> PointDeMana >> DmgMin >> DmgMax;
-                fichier.close();  // on ferme le fichier
-		this->nom=name;
-		this->PointDeVie=PointDeVie;
-		this->PointDeVieMax=PointDeVie;
-		this->PointDeMana=PointDeMana;
-		this->PointDeManaMax=PointDeMana;
-		this->DmgMin=DmgMin;
-		this->DmgMax=DmgMax;
-	
+        {           
+			string name;  // déclaration d'une chaîne qui contiendra la ligne lue
+			int PointDeVie,PointDeMana,DmgMin,DmgMax;
+               	
+            fichier >> name >> PointDeVie >> PointDeMana >> DmgMin >> DmgMax;
+            fichier.close();  // on ferme le fichier
+			
+			this->nom=name;
+			this->PointDeVie=PointDeVie;
+			this->PointDeVieMax=PointDeVie;
+			this->PointDeMana=PointDeMana;
+			this->PointDeManaMax=PointDeMana;
+			this->DmgMin=DmgMin;
+			this->DmgMax=DmgMax;	
         }
-        else  
-                cerr << "Impossible d'ouvrir le fichier !" << endl;
- 
-      
+
+        else 	cerr << "Impossible d'ouvrir le fichier !" << endl;      
 }
 
-////////////////////////////////////////////////////////////////////////
 /**
  * @brief [retourne nom]
  * @details [retourne le nom du perso aka joueur]
  * @return [retourne un string]
  */
 string perso::getname()
-{
-	return this->nom;
-}
-////////////////////////////////////////////////////////////////////////
+{ return this->nom; }
+
 /**
  * @brief [retourne les points de vie]
  * @details [retourne les points de vie du perso aka joueur]
  * @return [retourne un entier]
  */
 int perso::getPointDeVie()
-{
-	return this->PointDeVie;
-}
-////////////////////////////////////////////////////////////////////////
+{ return this->PointDeVie; }
+
 /**
  * @brief [retourne les points de mana]
  * @details [retourne les points de mana du perso aka joueur]
  * @return [retourne un entier]
  */
 int perso::getPointDeMana()
-{
-	return this->PointDeMana;
-}
-////////////////////////////////////////////////////////////////////////
+{ return this->PointDeMana; }
+
 /**
  * @brief [retourne les degats maximum]
  * @details [retourne les degats maximum du perso aka joueur]
  * @return [retourne un entier]
  */
 int perso::getDmgMax()
-{
-	return this->DmgMax;
-}
-////////////////////////////////////////////////////////////////////////
+{ return this->DmgMax; }
+
 /**
  * @brief [retourne les degats minimum]
  * @details [retourne les degats minimum du perso aka joueur]
  * @return [retourne un entier]
  */
 int perso::getDmgMin()
-{
-	return this->DmgMin;
-}
+{ return this->DmgMin; }
 
 /**
  * @brief [modifie les points de mana]
@@ -93,9 +80,7 @@ int perso::getDmgMin()
  * @param n [entier, cout en mana d'un attaque]
  */
 void perso::setPm(int n)
-{
-	this->PointDeMana-=n;
-}
+{ this->PointDeMana-=n; }
 
 /**
  * @brief [modifie les points de mana]
@@ -106,18 +91,8 @@ void perso::setPm(int n)
 void perso::setPmP(int n)
 {
 	if(this->PointDeMana+n > this->PointDeManaMax) this->PointDeMana=this->PointDeManaMax;
-	else this->PointDeMana+=n;
-}
 
-/**
- * @brief [reset points de mana]
- * @details [reset points de mana du perso aka joueur après un combat]
- * 
- * @param n [entier, point de mana du perso en debut de partie]
- */
-void perso::resetPm(int n)
-{
-	this->PointDeMana=n;
+	else this->PointDeMana+=n;
 }
 
 /**
@@ -142,8 +117,18 @@ void perso::setPv(int n)
 void perso::setPvP(int n)
 {
 	if(this->PointDeVie+n > this->PointDeVieMax) this->PointDeVie=this->PointDeVieMax;
+
 	else this->PointDeVie+=n;
 }
+
+/**
+ * @brief [reset points de mana]
+ * @details [reset points de mana du perso aka joueur après un combat]
+ * 
+ * @param n [entier, point de mana du perso en debut de partie]
+ */
+void perso::resetPm(int n)
+{ this->PointDeMana=n; }
 
 /**
  * @brief [reset points de vie]
@@ -152,15 +137,11 @@ void perso::setPvP(int n)
  * @param n [entier, point de vie du perso en debut de partie]
  */
 void perso::resetPv(int n)
-{
-	this->PointDeVie=n;
-}
+{ this->PointDeVie=n; }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 /**
  * @brief [attaque de base]
@@ -176,7 +157,7 @@ int guerrier::AttackBase()
 	int dmg = rand() % this->getDmgMax() + this->getDmgMin();/* generate secret number between 1 and 10: */
 	dmg+=2;
 
-	cout<<"Vos dmg: "<<dmg<<endl;
+	cout<<"\n\033[1;32mVos dmg: "<<dmg<<"\033[0m"<<endl;
 
 	return dmg;
 }
@@ -190,7 +171,7 @@ int guerrier::CompD()
 {	this->setPm(35);
 	int dmg=24;
 
-	cout<<"Vos dmg: "<<dmg<<endl;
+	cout<<"\n\033[1;32mVos dmg: "<<dmg<<"\033[0m"<<endl;
 
 	return dmg;
 }
@@ -206,8 +187,6 @@ int guerrier::CompDp()
 	int a=this->AttackBase();
 	int b=this->AttackBase();
 
-	cout<<"Vos dmg: "<<a+b<<endl;
-
 	return a+b;
 }
 
@@ -218,15 +197,26 @@ int guerrier::CompDp()
  */
 int guerrier::choiceCmp()
 {	
-	srand (time(NULL));
+	srand(time(NULL));
 
 	int rnd = rand() % 3 + 1;
 
 	int n=0;
-	cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"]+2 -> 0 mana)"<<endl;
-	cout<<"                         2 - Competence 1 (degats[20] -> 35 mana)"<<endl;
-	cout<<"                         3 - Competence 2 (2xAttackBase -> 20 mana)"<<endl;
-	cin>>n;
+	string nn;
+	bool bn=true;
+
+	do
+	{
+		if(!bn) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+
+		cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"]+2 -> 0 mana)"<<endl;
+		cout<<"                         2 - Competence 1 (degats[20] -> 35 mana)"<<endl;
+		cout<<"                         3 - Competence 2 (2xAttackBase -> 20 mana)"<<endl;
+		
+		cin>>nn;
+		bn=verifEntree(nn,n);
+
+	}while(!bn);
 
 	if(n==1) return AttackBase();
 
@@ -236,9 +226,9 @@ int guerrier::choiceCmp()
 
 	else
 	{ 
-		if(rnd==1) cout<<"\npas assez de mana!!!"<<endl; 
-		else if(rnd==2) cout<<"\nil me faut plus de mana!!!"<<endl;
-		else if(rnd==3) cout<<"\nAllo Huston, nous avons un probleme, j'ai plus de MANA!!!"<<endl;
+		if(rnd==1) cout<<"\n\033[1;37;41mpas assez de mana!!!\033[0m"<<endl; 
+		else if(rnd==2) cout<<"\n\033[1;37;41mil me faut plus de mana!!!\033[0m"<<endl;
+		else if(rnd==3) cout<<"\n\033[1;37;41mAllo Huston, nous avons un probleme, j'ai plus de MANA!!!\033[0m"<<endl;
 		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
 		choiceCmp();
 	}
@@ -247,7 +237,6 @@ int guerrier::choiceCmp()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 /**
  * @brief [attaque de base]
@@ -262,7 +251,7 @@ int mage::AttackBase()
 
 	int dmg = rand() % this->getDmgMax() + this->getDmgMin();/* generate secret number between 1 and 10: */
 
-	cout<<"Vos dmg: "<<dmg<<endl;
+	cout<<"\033[1;32mVos dmg: "<<dmg<<"\033[0m"<<endl;
 
 	return dmg;
 }
@@ -280,7 +269,7 @@ int mage::CompD()
 
 	int dmg = rand() % this->getDmgMax()*4 + this->getDmgMax()*4;
 
-	cout<<"Vos dmg: "<<dmg<<endl;
+	cout<<"\033[1;32mVos dmg: "<<dmg<<"\033[0m"<<endl;
 	
 	return dmg;
 }
@@ -298,7 +287,7 @@ int mage::CompDef1()
 
 	int manaP = rand() % (this->getDmgMax()*5) + (this->getDmgMax()/2);
 
-	cout<<"PM ajouté: "<<manaP<<endl;
+	cout<<"\033[1;32mPM ajouté: "<<manaP<<"\033[0m"<<endl;
 	
 	this->setPmP(manaP);
 
@@ -317,10 +306,21 @@ int mage::choiceCmp()
 	int rnd = rand() % 3 + 1;
 
 	int n=0;
-	cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
-	cout<<"                         2 - Competence 1 (degats["<<this->getDmgMax()*4<<"/"<<this->getDmgMax()*8<<"] -> 70 mana)"<<endl;
-	cout<<"                         3 - Competence 2 (ajout PM["<<this->getDmgMax()/2<<"/"<<this->getDmgMax()*5<<"]  -> 15 mana)"<<endl;
-	cin>>n;
+	string nn;
+	bool bn=true;
+
+	do
+	{
+		if(!bn) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+
+		cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
+		cout<<"                         2 - Competence 1 (degats["<<this->getDmgMax()*4<<"/"<<this->getDmgMax()*8<<"] -> 70 mana)"<<endl;
+		cout<<"                         3 - Competence 2 (ajout PM["<<this->getDmgMax()/2<<"/"<<this->getDmgMax()*5<<"]  -> 15 mana)"<<endl;
+		
+		cin>>nn;
+		bn=verifEntree(nn,n);
+
+	}while(!bn);
 
 	if(n==1) return AttackBase();
 
@@ -330,19 +330,17 @@ int mage::choiceCmp()
 
 	else
 	{ 
-		if(rnd==1) cout<<"\npas assez de mana!!!"<<endl; 
-		else if(rnd==2) cout<<"\nil me faut plus de mana!!!"<<endl;
-		else if(rnd==3) cout<<"\nAllo Huston, nous avons un probleme, j'ai plus de MANA!!!"<<endl;
+		if(rnd==1) cout<<"\n\033[1;37;41mpas assez de mana!!!\033[0m"<<endl; 
+		else if(rnd==2) cout<<"\n\033[1;37;41mil me faut plus de mana!!!\033[0m"<<endl;
+		else if(rnd==3) cout<<"\n\033[1;37;41mAllo Huston, nous avons un probleme, j'ai plus de MANA!!!\033[0m"<<endl;
 		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
 		choiceCmp();
 	}
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 /**
  * @brief [attaque de base]
@@ -357,7 +355,7 @@ int guerriseur::AttackBase()
 
 	int dmg = rand() % this->getDmgMax() + this->getDmgMin();/* generate secret number between 1 and 10: */
 
-	cout<<"Vos dmg: "<<dmg<<endl;
+	cout<<"\033[1;32mVos dmg: "<<dmg<<"\033[0m"<<endl;
 
 	return dmg;
 }
@@ -375,7 +373,7 @@ int guerriseur::CompD()
 
 	int dmg = rand() % this->getDmgMax()*2 + this->getDmgMax()*2;
 
-	cout<<"Vos dmg: "<<dmg<<endl;
+	cout<<"\033[1;32mVos dmg: "<<dmg<<"\033[0m"<<endl;
 	
 	return dmg;
 }
@@ -393,7 +391,7 @@ int guerriseur::CompDef1()
 
 	int vieP = rand() % (this->getDmgMax()*2) + this->getDmgMax();
 
-	cout<<"PV ajouté: "<<vieP<<endl;
+	cout<<"\033[1;32mPV ajouté: "<<vieP<<"\033[0m"<<endl;
 	
 	this->setPvP(vieP);
 
@@ -412,10 +410,21 @@ int guerriseur::choiceCmp()
 	int rnd = rand() % 3 + 1;
 
 	int n=0;
-	cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
-	cout<<"                         2 - Competence 1 (degats["<<this->getDmgMax()*2<<"/"<<this->getDmgMax()*4<<"] -> 35 mana)"<<endl;
-	cout<<"                         3 - Competence 2 (ajout PV["<<this->getDmgMax()<<"/"<<this->getDmgMax()*3<<"]  -> 10 mana)"<<endl;
-	cin>>n;
+	string nn;
+	bool bn=true;
+
+	do
+	{
+		if(!bn) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+
+		cout<<"choisir une compétence:  1 - AttackBase   (degats["<<this->getDmgMin()<<"/"<<this->getDmgMax()<<"] -> 0 mana)"<<endl;
+		cout<<"                         2 - Competence 1 (degats["<<this->getDmgMax()*2<<"/"<<this->getDmgMax()*4<<"] -> 35 mana)"<<endl;
+		cout<<"                         3 - Competence 2 (ajout PV["<<this->getDmgMax()<<"/"<<this->getDmgMax()*3<<"]  -> 10 mana)"<<endl;
+		
+		cin>>nn;
+		bn=verifEntree(nn,n);
+
+	}while(!bn);
 
 	if(n==1) return AttackBase();
 
@@ -425,9 +434,9 @@ int guerriseur::choiceCmp()
 
 	else
 	{ 
-		if(rnd==1) cout<<"\npas assez de mana!!!"<<endl; 
-		else if(rnd==2) cout<<"\nil me faut plus de mana!!!"<<endl;
-		else if(rnd==3) cout<<"\nAllo Huston, nous avons un probleme, j'ai plus de MANA!!!"<<endl;
+		if(rnd==1) cout<<"\n\033[1;37;41mpas assez de mana!!!\033[0m"<<endl; 
+		else if(rnd==2) cout<<"\n\033[1;37;41mil me faut plus de mana!!!\033[0m"<<endl;
+		else if(rnd==3) cout<<"\n\033[1;37;41mAllo Huston, nous avons un probleme, j'ai plus de MANA!!!\033[0m"<<endl;
 		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
 		choiceCmp();
 	}
@@ -436,8 +445,6 @@ int guerriseur::choiceCmp()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 /**
  * @brief [constructeur]
@@ -476,12 +483,10 @@ int monster::AttackBase()
 
 	int  dmg = rand() % this->getDmgMax() + this->getDmgMin();/* generate secret number between 1 and 10: */
 
-	cout<<"dmg fait par le monstre: "<<dmg<<endl;
+	cout<<"\033[1;31mdmg fait par le monstre: "<<dmg<<"\033[0m"<<endl;
 	
 	return dmg;
 }
-
-////////////////////////////////////////////////////////////////////////
 
 /**
  * @brief [retourne les points de vie du monstre]
@@ -489,20 +494,14 @@ int monster::AttackBase()
  * @return [entier]
  */
 int monster::getPointDeVie()
-{
-	return this->PointDeVie;
-} 
-////////////////////////////////////////////////////////////////////////
+{ return this->PointDeVie; } 
 
 /**
  * @brief [retourne les degats max]
  * @details [retourne les degats max du monstre]
  * @return [entier]
  */int monster::getDmgMax()
-{
-	return this->DmgMax;
-}
-////////////////////////////////////////////////////////////////////////
+{ return this->DmgMax; }
 
 /**
  * @brief [retourne les degats min]
@@ -510,9 +509,7 @@ int monster::getPointDeVie()
  * @return [entier]
  */
 int monster::getDmgMin()
-{
-	return this->DmgMin;
-}
+{ return this->DmgMin; }
 
 /**
  * @brief [modifie les points de vie]
@@ -526,8 +523,3 @@ void monster::setPv(int n)
 
 	else if(this->PointDeVie>0) this->PointDeVie=this->PointDeVie-n;
 }
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
