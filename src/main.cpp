@@ -64,7 +64,7 @@ int main(int argc, char const *argv[])
 		do
 		{
 			cout<<"choisissez une direction (haut -> z|Z / bas -> s|S / gauche -> q|Q / droite -> d|D)"<<endl;
-			cout<<"vous pouvez aussi quitter la partie -> a"<<endl;
+			cout<<"\033[1;37;42mvous pouvez aussi quitter la partie -> a \033[0m"<<endl;
 			cin>>s;
 
 			if(s=="a")

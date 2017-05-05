@@ -24,5 +24,4 @@ public:
 	void modifcntnC(string s);
 
 	friend class Plateau;
-
 };
