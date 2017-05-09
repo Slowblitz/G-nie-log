@@ -64,10 +64,10 @@ int main(int argc, char const *argv[])
 		do
 		{
 			cout<<"choisissez une direction (haut -> z|Z / bas -> s|S / gauche -> q|Q / droite -> d|D)"<<endl;
-			cout<<"\033[1;37;42mvous pouvez aussi quitter la partie -> a \033[0m"<<endl;
+			cout<<"\033[1;37;42mvous pouvez aussi quitter la partie -> e \033[0m"<<endl;
 			cin>>s;
 
-			if(s=="a")
+			if(s=="e")
 			{
 				system("clear");
 				cout<<"vous avez quitté la partie, à bientôt"<<endl;

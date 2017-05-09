@@ -363,7 +363,7 @@ bool Map::combat(perso &p, monster &m)
 
 			m.setPv(p.choiceCmp());
 
-			if(m.getPointDeVie()>=0) cout<<"\n\033[1;37;41mPV Monstre: "<<m.getPointDeVie()<<"\033[0m\n"<<endl;
+			if(m.getPointDeVie()>=0) cout<<"\n\033[1;37;41mPV Monstre: ["<<m.getPointDeVie()<<"/"<<m.getPointDeVieMax()<<"]\033[0m\n"<<endl;
 
 			rnd=2;
 
@@ -376,7 +376,7 @@ bool Map::combat(perso &p, monster &m)
 
 			p.setPv(m.AttackBase());		//le monstre joue et enleve les points de vie au joueur
 
-			if(p.getPointDeVie()>=0) cout<<"\033[1;37;42mPV Joueur: "<<p.getPointDeVie()<<"\033[0m\n\033[1;37;46mPM joueur: "<<p.getPointDeMana()<<"\033[0m\n"<<endl;
+			if(p.getPointDeVie()>=0) cout<<"\033[1;37;42mPV Joueur: ["<<p.getPointDeVie()<<"/"<<p.getPointDeVieMax()<<"]\033[0m\n\033[1;37;46mPM joueur: ["<<p.getPointDeMana()<<"/"<<p.getPointDeManaMax()<<"]\033[0m\n"<<endl;
 
 			rnd=1;
 		}

@@ -13,7 +13,9 @@ class perso
 		
 		string getname();
 		int getPointDeVie();
+		int getPointDeVieMax();
 		int getPointDeMana();
+		int getPointDeManaMax();
 		int getDmgMin();
 		int getDmgMax();
 
@@ -70,13 +72,14 @@ class guerriseur : public perso
 
 class monster 
 {
-	int PointDeVie,DmgMin,DmgMax;
+	int PointDeVie,PointDeVieMax,DmgMin,DmgMax;
 
 	public:	
 		
 		monster();
 		int AttackBase();
 		int getPointDeVie();
+		int getPointDeVieMax();
 		int getDmgMax();
 		int getDmgMin();
 		void setPv(int n);

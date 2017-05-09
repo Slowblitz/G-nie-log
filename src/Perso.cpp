@@ -50,12 +50,28 @@ int perso::getPointDeVie()
 { return this->PointDeVie; }
 
 /**
- * @brief [retourne les points de mana]
- * @details [retourne les points de mana du perso aka joueur]
+ * @brief [retourne les points de vie]
+ * @details [retourne les points de vie du perso aka joueur]
+ * @return [retourne un entier]
+ */
+int perso::getPointDeVieMax()
+{ return this->PointDeVieMax; }
+
+/**
+ * @brief [retourne les points de mana maximum]
+ * @details [retourne les points de mana maximum du perso aka joueur]
  * @return [retourne un entier]
  */
 int perso::getPointDeMana()
 { return this->PointDeMana; }
+
+/**
+ * @brief [retourne les points de mana maximum]
+ * @details [retourne les points de mana maximum du perso aka joueur]
+ * @return [retourne un entier]
+ */
+int perso::getPointDeManaMax()
+{ return this->PointDeManaMax; }
 
 /**
  * @brief [retourne les degats maximum]
@@ -218,11 +234,23 @@ int guerrier::choiceCmp()
 
 	}while(!bn);
 
-	if(n==1) return AttackBase();
+	if(n==1)
+	{ 
+		cout<<"\033[1;36m0 PM utilisé\033[0m"<<endl;
+		return AttackBase();
+	}
 
-	else if(n==2 && this->getPointDeMana()>=35) return CompD();
+	else if(n==2 && this->getPointDeMana()>=35)
+	{ 
+		cout<<"\033[1;36m35 PM utilisé\033[0m"<<endl;
+		return CompD();
+	}
 
-	else if(n==3 && this->getPointDeMana()>=20) return CompDp();
+	else if(n==3 && this->getPointDeMana()>=20)
+	{ 
+		cout<<"\033[1;36m20 PM utilisé\033[0m"<<endl;
+		return CompDp();
+	}
 
 	else
 	{ 
@@ -322,11 +350,23 @@ int mage::choiceCmp()
 
 	}while(!bn);
 
-	if(n==1) return AttackBase();
+	if(n==1)
+	{ 
+		cout<<"\033[1;36m0 PM utilisé\033[0m"<<endl;
+		return AttackBase();
+	}
 
-	else if(n==2 && this->getPointDeMana()>=70) return CompD();
+	else if(n==2 && this->getPointDeMana()>=70)
+	{ 
+		cout<<"\033[1;36m70 PM utilisé\033[0m"<<endl;
+		return CompD();
+	}
 
-	else if(n==3 && this->getPointDeMana()>=15) return CompDef1();
+	else if(n==3 && this->getPointDeMana()>=15)
+	{
+		cout<<"\033[1;36m15 PM utilisé\033[0m"<<endl;
+		return CompDef1();
+	}
 
 	else
 	{ 
@@ -426,12 +466,23 @@ int guerriseur::choiceCmp()
 
 	}while(!bn);
 
-	if(n==1) return AttackBase();
+	if(n==1)
+	{ 
+		cout<<"\033[1;36m0 PM utilisé\033[0m"<<endl;
+		return AttackBase();
+	}
 
-	else if(n==2 && this->getPointDeMana()>=35) return CompD();
+	else if(n==2 && this->getPointDeMana()>=35)
+	{ 
+		cout<<"\033[1;36m35 PM utilisé\033[0m"<<endl;
+		return CompD();
+	}
 
-	else if(n==3 && this->getPointDeMana()>=10) return CompDef1();
-
+	else if(n==3 && this->getPointDeMana()>=10)
+	{ 
+		cout<<"\033[1;36m10 PM utilisé\033[0m"<<endl;
+		return CompDef1();
+	}
 	else
 	{ 
 		if(rnd==1) cout<<"\n\033[1;37;41mpas assez de mana!!!\033[0m"<<endl; 
@@ -463,6 +514,7 @@ monster::monster()
             fichier.close();  // on ferme le fichier
 			
 			this->PointDeVie=PointDeVie;
+			this->PointDeVieMax=PointDeVie;
 			this-> DmgMin= DmgMin;
 			this-> DmgMax= DmgMax;	
         }
@@ -495,6 +547,14 @@ int monster::AttackBase()
  */
 int monster::getPointDeVie()
 { return this->PointDeVie; } 
+
+/**
+ * @brief [retourne les points de vie maximum du monstre]
+ * @details [retourne les points de vie maximum du monstre]
+ * @return [entier]
+ */
+int monster::getPointDeVieMax()
+{ return this->PointDeVieMax; }
 
 /**
  * @brief [retourne les degats max]
