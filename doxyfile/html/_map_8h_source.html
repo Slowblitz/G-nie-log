@@ -4,18 +4,10 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>G-nie-log: src/Map.h Source File</title>
+<title>E-gam: src/Map.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -31,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">G-nie-log
+   <div id="projectname">E-gam
    </div>
   </td>
  </tr>
@@ -71,21 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="files.html"><span>File&#160;List</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('_map_8h_source.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -100,33 +77,32 @@ $(document).ready(function(){initNavTree('_map_8h_source.html','');});
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Map.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;Case.h&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Perso.h&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_map.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_map.html">Map</a></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_case.html">Case</a> ** mp;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">int</span> taille;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    </div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_map.html#a18c4777be15d4d5080da8dbf7e549207">Map</a>(<span class="keywordtype">int</span> n);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_map.html#a3426a949e89c1808e2a359fb125635ac">affichage</a>();</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_map.html#a1405dd0cf769dc6b37a44c68c27e57b8">affichageWM</a>();</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#a7744f9a658937dbbe1b0d35ae6a56a95">cmptM</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#a382f1040f930d601c907997453a63cf9">trouveJ</a>(<span class="keywordtype">string</span> s, <a class="code" href="classguerrier.html">guerrier</a> &amp;p, <a class="code" href="classmonster.html">monster</a> m);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#a382f1040f930d601c907997453a63cf9">trouveJ</a>(<span class="keywordtype">string</span> s, <a class="code" href="classmage.html">mage</a> &amp;p, <a class="code" href="classmonster.html">monster</a> m);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#a382f1040f930d601c907997453a63cf9">trouveJ</a>(<span class="keywordtype">string</span> s, <a class="code" href="classguerriseur.html">guerriseur</a> &amp;p, <a class="code" href="classmonster.html">monster</a> m);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#ad44b2f767e5bdeced4c239ef508ac079">combat</a>(<a class="code" href="classguerrier.html">guerrier</a> &amp;p, <a class="code" href="classmonster.html">monster</a> &amp;m);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#ad44b2f767e5bdeced4c239ef508ac079">combat</a>(<a class="code" href="classmage.html">mage</a> &amp;p, <a class="code" href="classmonster.html">monster</a> &amp;m);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_map.html#ad44b2f767e5bdeced4c239ef508ac079">combat</a>(<a class="code" href="classguerriseur.html">guerriseur</a> &amp;p, <a class="code" href="classmonster.html">monster</a> &amp;m);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_case.html">Case</a>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">//friend bool combat(guerrier &amp;p, monster m);</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//bool combat(guerrier &amp;p, monster m);</span></div><div class="ttc" id="class_case_html"><div class="ttname"><a href="class_case.html">Case</a></div><div class="ttdef"><b>Definition:</b> Case.h:13</div></div>
-<div class="ttc" id="classmage_html"><div class="ttname"><a href="classmage.html">mage</a></div><div class="ttdef"><b>Definition:</b> Perso.h:47</div></div>
-<div class="ttc" id="classmonster_html"><div class="ttname"><a href="classmonster.html">monster</a></div><div class="ttdef"><b>Definition:</b> Perso.h:75</div></div>
-<div class="ttc" id="class_map_html_a1405dd0cf769dc6b37a44c68c27e57b8"><div class="ttname"><a href="class_map.html#a1405dd0cf769dc6b37a44c68c27e57b8">Map::affichageWM</a></div><div class="ttdeci">void affichageWM()</div><div class="ttdoc">[affichage] </div><div class="ttdef"><b>Definition:</b> Map.cpp:83</div></div>
-<div class="ttc" id="class_map_html_a382f1040f930d601c907997453a63cf9"><div class="ttname"><a href="class_map.html#a382f1040f930d601c907997453a63cf9">Map::trouveJ</a></div><div class="ttdeci">bool trouveJ(string s, guerrier &amp;p, monster m)</div><div class="ttdoc">[trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé] ...</div><div class="ttdef"><b>Definition:</b> Map.cpp:158</div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;Case.h&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Perso.h&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_map.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_map.html">Map</a></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_case.html">Case</a> ** mp;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">int</span> taille;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    </div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="class_map.html#a264307e95b5c08da0b21ee3927f30a79">Map</a>(<span class="keywordtype">string</span> s);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_map.html#a3426a949e89c1808e2a359fb125635ac">affichage</a>();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_map.html#a1405dd0cf769dc6b37a44c68c27e57b8">affichageWM</a>();</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        </div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_map.html#a7744f9a658937dbbe1b0d35ae6a56a95">cmptM</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_map.html#a1576b661d68bb5cc9d417be9623349d8">trouveJ</a>(<span class="keywordtype">string</span> s, <a class="code" href="classperso.html">perso</a> &amp;p, <a class="code" href="classmonster.html">monster</a> m);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_map.html#aefa80595b7927f25a5d40684d4db2b4e">combat</a>(<a class="code" href="classperso.html">perso</a> &amp;p, <a class="code" href="classmonster.html">monster</a> &amp;m);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_case.html">Case</a>;  </div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">bool</span> verifEntree(<span class="keywordtype">string</span> s,<span class="keywordtype">int</span> &amp;n);</div><div class="ttc" id="class_map_html_aefa80595b7927f25a5d40684d4db2b4e"><div class="ttname"><a href="class_map.html#aefa80595b7927f25a5d40684d4db2b4e">Map::combat</a></div><div class="ttdeci">bool combat(perso &amp;p, monster &amp;m)</div><div class="ttdoc">[lance un combat entre le joueur et un monstre] </div><div class="ttdef"><b>Definition:</b> Map.cpp:360</div></div>
+<div class="ttc" id="class_case_html"><div class="ttname"><a href="class_case.html">Case</a></div><div class="ttdef"><b>Definition:</b> Case.h:13</div></div>
+<div class="ttc" id="classmonster_html"><div class="ttname"><a href="classmonster.html">monster</a></div><div class="ttdef"><b>Definition:</b> Perso.h:77</div></div>
+<div class="ttc" id="class_map_html_a1405dd0cf769dc6b37a44c68c27e57b8"><div class="ttname"><a href="class_map.html#a1405dd0cf769dc6b37a44c68c27e57b8">Map::affichageWM</a></div><div class="ttdeci">void affichageWM()</div><div class="ttdoc">[affichage] </div><div class="ttdef"><b>Definition:</b> Map.cpp:115</div></div>
+<div class="ttc" id="class_map_html_a1576b661d68bb5cc9d417be9623349d8"><div class="ttname"><a href="class_map.html#a1576b661d68bb5cc9d417be9623349d8">Map::trouveJ</a></div><div class="ttdeci">bool trouveJ(string s, perso &amp;p, monster m)</div><div class="ttdoc">[trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé] ...</div><div class="ttdef"><b>Definition:</b> Map.cpp:204</div></div>
 <div class="ttc" id="class_map_html"><div class="ttname"><a href="class_map.html">Map</a></div><div class="ttdef"><b>Definition:</b> Map.h:5</div></div>
-<div class="ttc" id="class_map_html_a18c4777be15d4d5080da8dbf7e549207"><div class="ttname"><a href="class_map.html#a18c4777be15d4d5080da8dbf7e549207">Map::Map</a></div><div class="ttdeci">Map(int n)</div><div class="ttdoc">[constrcteur] </div><div class="ttdef"><b>Definition:</b> Map.cpp:9</div></div>
-<div class="ttc" id="classguerriseur_html"><div class="ttname"><a href="classguerriseur.html">guerriseur</a></div><div class="ttdef"><b>Definition:</b> Perso.h:60</div></div>
-<div class="ttc" id="classguerrier_html"><div class="ttname"><a href="classguerrier.html">guerrier</a></div><div class="ttdef"><b>Definition:</b> Perso.h:32</div></div>
-<div class="ttc" id="class_map_html_a3426a949e89c1808e2a359fb125635ac"><div class="ttname"><a href="class_map.html#a3426a949e89c1808e2a359fb125635ac">Map::affichage</a></div><div class="ttdeci">void affichage()</div><div class="ttdoc">[affichage] </div><div class="ttdef"><b>Definition:</b> Map.cpp:50</div></div>
-<div class="ttc" id="class_map_html_ad44b2f767e5bdeced4c239ef508ac079"><div class="ttname"><a href="class_map.html#ad44b2f767e5bdeced4c239ef508ac079">Map::combat</a></div><div class="ttdeci">bool combat(guerrier &amp;p, monster &amp;m)</div><div class="ttdoc">[lance un combat entre le joueur et un monstre] </div><div class="ttdef"><b>Definition:</b> Map.cpp:314</div></div>
-<div class="ttc" id="class_map_html_a7744f9a658937dbbe1b0d35ae6a56a95"><div class="ttname"><a href="class_map.html#a7744f9a658937dbbe1b0d35ae6a56a95">Map::cmptM</a></div><div class="ttdeci">bool cmptM()</div><div class="ttdoc">[compteur de monstre] </div><div class="ttdef"><b>Definition:</b> Map.cpp:131</div></div>
+<div class="ttc" id="class_map_html_a264307e95b5c08da0b21ee3927f30a79"><div class="ttname"><a href="class_map.html#a264307e95b5c08da0b21ee3927f30a79">Map::Map</a></div><div class="ttdeci">Map(string s)</div><div class="ttdoc">[constrcteur] </div><div class="ttdef"><b>Definition:</b> Map.cpp:16</div></div>
+<div class="ttc" id="classperso_html"><div class="ttname"><a href="classperso.html">perso</a></div><div class="ttdef"><b>Definition:</b> Perso.h:10</div></div>
+<div class="ttc" id="class_map_html_a3426a949e89c1808e2a359fb125635ac"><div class="ttname"><a href="class_map.html#a3426a949e89c1808e2a359fb125635ac">Map::affichage</a></div><div class="ttdeci">void affichage()</div><div class="ttdoc">[affichage] </div><div class="ttdef"><b>Definition:</b> Map.cpp:58</div></div>
+<div class="ttc" id="class_map_html_a7744f9a658937dbbe1b0d35ae6a56a95"><div class="ttname"><a href="class_map.html#a7744f9a658937dbbe1b0d35ae6a56a95">Map::cmptM</a></div><div class="ttdeci">bool cmptM()</div><div class="ttdoc">[compteur de monstre] </div><div class="ttdef"><b>Definition:</b> Map.cpp:176</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>Map.h</b></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

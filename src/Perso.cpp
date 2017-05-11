@@ -1,9 +1,6 @@
 #include "Perso.h"
 #include "Map.h"
-#include <cstdlib>
-#include <fstream>
-#include <iostream>
-using namespace std;
+
 
 /**
  * @brief [constructeur]
@@ -33,6 +30,7 @@ perso::perso()
         else 	cerr << "Impossible d'ouvrir le fichier !" << endl;      
 }
 
+
 /**
  * @brief [retourne nom]
  * @details [retourne le nom du perso aka joueur]
@@ -40,6 +38,7 @@ perso::perso()
  */
 string perso::getname()
 { return this->nom; }
+
 
 /**
  * @brief [retourne les points de vie]
@@ -49,6 +48,7 @@ string perso::getname()
 int perso::getPointDeVie()
 { return this->PointDeVie; }
 
+
 /**
  * @brief [retourne les points de vie]
  * @details [retourne les points de vie du perso aka joueur]
@@ -56,6 +56,7 @@ int perso::getPointDeVie()
  */
 int perso::getPointDeVieMax()
 { return this->PointDeVieMax; }
+
 
 /**
  * @brief [retourne les points de mana maximum]
@@ -65,6 +66,7 @@ int perso::getPointDeVieMax()
 int perso::getPointDeMana()
 { return this->PointDeMana; }
 
+
 /**
  * @brief [retourne les points de mana maximum]
  * @details [retourne les points de mana maximum du perso aka joueur]
@@ -72,6 +74,7 @@ int perso::getPointDeMana()
  */
 int perso::getPointDeManaMax()
 { return this->PointDeManaMax; }
+
 
 /**
  * @brief [retourne les degats maximum]
@@ -81,6 +84,7 @@ int perso::getPointDeManaMax()
 int perso::getDmgMax()
 { return this->DmgMax; }
 
+
 /**
  * @brief [retourne les degats minimum]
  * @details [retourne les degats minimum du perso aka joueur]
@@ -88,6 +92,7 @@ int perso::getDmgMax()
  */
 int perso::getDmgMin()
 { return this->DmgMin; }
+
 
 /**
  * @brief [modifie les points de mana]
@@ -97,6 +102,7 @@ int perso::getDmgMin()
  */
 void perso::setPm(int n)
 { this->PointDeMana-=n; }
+
 
 /**
  * @brief [modifie les points de mana]
@@ -111,6 +117,7 @@ void perso::setPmP(int n)
 	else this->PointDeMana+=n;
 }
 
+
 /**
  * @brief [modifie les points de vie]
  * @details [modifie les points de vie du perso aka joueur a partir des degats fait par un monstre]
@@ -123,6 +130,7 @@ void perso::setPv(int n)
 
 	else if(this->PointDeVie>0) this->PointDeVie=this->PointDeVie-n;
 }
+
 
 /**
  * @brief [modifie les points de vie]
@@ -137,6 +145,7 @@ void perso::setPvP(int n)
 	else this->PointDeVie+=n;
 }
 
+
 /**
  * @brief [reset points de mana]
  * @details [reset points de mana du perso aka joueur après un combat]
@@ -145,6 +154,7 @@ void perso::setPvP(int n)
  */
 void perso::resetPm(int n)
 { this->PointDeMana=n; }
+
 
 /**
  * @brief [reset points de vie]
@@ -155,9 +165,11 @@ void perso::resetPm(int n)
 void perso::resetPv(int n)
 { this->PointDeVie=n; }
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /**
  * @brief [attaque de base]
@@ -178,6 +190,7 @@ int guerrier::AttackBase()
 	return dmg;
 }
 
+
 /**
  * @brief [competence degat 1]
  * @details [competence degat 1 du guerrier, elle utilise du mana]
@@ -192,6 +205,7 @@ int guerrier::CompD()
 	return dmg;
 }
 
+
 /**
  * @brief [competence degat plus]
  * @details [competence degat, deuxieme du nom du guerrier, elle utilise aussi du MANA]
@@ -205,6 +219,7 @@ int guerrier::CompDp()
 
 	return a+b;
 }
+
 
 /**
  * @brief [choix d'une competence]
@@ -258,13 +273,15 @@ int guerrier::choiceCmp()
 		else if(rnd==2) cout<<"\n\033[1;37;41mil me faut plus de mana!!!\033[0m"<<endl;
 		else if(rnd==3) cout<<"\n\033[1;37;41mAllo Huston, nous avons un probleme, j'ai plus de MANA!!!\033[0m"<<endl;
 		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
-		choiceCmp();
+		return choiceCmp();
 	}
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /**
  * @brief [attaque de base]
@@ -284,6 +301,7 @@ int mage::AttackBase()
 	return dmg;
 }
 
+
 /**
  * @brief [competence degat 1]
  * @details [competence degat 1 du guerrier, elle utilise du mana]
@@ -301,6 +319,7 @@ int mage::CompD()
 	
 	return dmg;
 }
+
 
 /**
  * @brief [competence degat plus]
@@ -321,6 +340,7 @@ int mage::CompDef1()
 
 	return 0;
 }
+
 
 /**
  * @brief [choix d'une competence]
@@ -374,13 +394,15 @@ int mage::choiceCmp()
 		else if(rnd==2) cout<<"\n\033[1;37;41mil me faut plus de mana!!!\033[0m"<<endl;
 		else if(rnd==3) cout<<"\n\033[1;37;41mAllo Huston, nous avons un probleme, j'ai plus de MANA!!!\033[0m"<<endl;
 		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
-		choiceCmp();
+		return choiceCmp();
 	}
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /**
  * @brief [attaque de base]
@@ -400,6 +422,7 @@ int guerriseur::AttackBase()
 	return dmg;
 }
 
+
 /**
  * @brief [competence degat 1]
  * @details [competence degat 1 du guerrier, elle utilise du mana]
@@ -417,6 +440,7 @@ int guerriseur::CompD()
 	
 	return dmg;
 }
+
 
 /**
  * @brief [competence degat plus]
@@ -437,6 +461,7 @@ int guerriseur::CompDef1()
 
 	return 0;
 }
+
 
 /**
  * @brief [choix d'une competence]
@@ -489,13 +514,15 @@ int guerriseur::choiceCmp()
 		else if(rnd==2) cout<<"\n\033[1;37;41mil me faut plus de mana!!!\033[0m"<<endl;
 		else if(rnd==3) cout<<"\n\033[1;37;41mAllo Huston, nous avons un probleme, j'ai plus de MANA!!!\033[0m"<<endl;
 		cout<<"PM du joueur: "<<this->getPointDeMana()<<"\n"<<endl;
-		choiceCmp();
+		return choiceCmp();
 	}
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /**
  * @brief [constructeur]
@@ -522,6 +549,7 @@ monster::monster()
         else  cerr << "Impossible d'ouvrir le fichier !" << endl;      
 }
 
+
 /**
  * @brief [attaque de base]
  * @details [attaque de base du monstre, c'est d'ailleurs sa seul attaque]
@@ -540,6 +568,7 @@ int monster::AttackBase()
 	return dmg;
 }
 
+
 /**
  * @brief [retourne les points de vie du monstre]
  * @details [retourne les points de vie du monstre]
@@ -547,6 +576,7 @@ int monster::AttackBase()
  */
 int monster::getPointDeVie()
 { return this->PointDeVie; } 
+
 
 /**
  * @brief [retourne les points de vie maximum du monstre]
@@ -556,12 +586,14 @@ int monster::getPointDeVie()
 int monster::getPointDeVieMax()
 { return this->PointDeVieMax; }
 
+
 /**
  * @brief [retourne les degats max]
  * @details [retourne les degats max du monstre]
  * @return [entier]
  */int monster::getDmgMax()
 { return this->DmgMax; }
+
 
 /**
  * @brief [retourne les degats min]
@@ -570,6 +602,7 @@ int monster::getPointDeVieMax()
  */
 int monster::getDmgMin()
 { return this->DmgMin; }
+
 
 /**
  * @brief [modifie les points de vie]

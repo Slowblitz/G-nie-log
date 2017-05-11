@@ -11,17 +11,87 @@ Collaboration diagram for guerriseur\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int {\bfseries Attack\+Base} ()\hypertarget{classguerriseur_a4a726a53f8da0576628ea68820c51a5d}{}\label{classguerriseur_a4a726a53f8da0576628ea68820c51a5d}
+int \hyperlink{classguerriseur_a4a726a53f8da0576628ea68820c51a5d}{Attack\+Base} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}attaque de base\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classguerriseur_af08e160418e6e6eaa46f135122bb0100}{CompD} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}competence degat 1\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classguerriseur_a86d4ab840da8e19f4af28c2159b985d9}{Comp\+Def1} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}competence degat plus\mbox{]} \end{DoxyCompactList}\item 
+virtual int \hyperlink{classguerriseur_a6dcd72815c1b1b13de1e8ce08042df0f}{choice\+Cmp} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}choix d\textquotesingle{}une competence\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Member Function Documentation}
+\index{guerriseur@{guerriseur}!Attack\+Base@{Attack\+Base}}
+\index{Attack\+Base@{Attack\+Base}!guerriseur@{guerriseur}}
+\subsubsection[{\texorpdfstring{Attack\+Base()}{AttackBase()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerriseur\+::\+Attack\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerriseur_a4a726a53f8da0576628ea68820c51a5d}{}\label{classguerriseur_a4a726a53f8da0576628ea68820c51a5d}
+
+
+\mbox{[}attaque de base\mbox{]} 
+
+\mbox{[}attaque de base du guerrier en fonction d\textquotesingle{}un random entre les degats minimumet maximum\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \mbox{[}pour le random en fonction du temps\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}entier, points de degats de la competence\mbox{]} 
+\end{DoxyReturn}
+\index{guerriseur@{guerriseur}!choice\+Cmp@{choice\+Cmp}}
+\index{choice\+Cmp@{choice\+Cmp}!guerriseur@{guerriseur}}
+\subsubsection[{\texorpdfstring{choice\+Cmp()}{choiceCmp()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerriseur\+::choice\+Cmp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classguerriseur_a6dcd72815c1b1b13de1e8ce08042df0f}{}\label{classguerriseur_a6dcd72815c1b1b13de1e8ce08042df0f}
+
+
+\mbox{[}choix d\textquotesingle{}une competence\mbox{]} 
+
+\mbox{[}choix d\textquotesingle{}une competence de la classe guerrier\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}un entier en fonction de l\textquotesingle{}attaque choisie\mbox{]} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classperso}{perso}.
+
+\index{guerriseur@{guerriseur}!CompD@{CompD}}
+\index{CompD@{CompD}!guerriseur@{guerriseur}}
+\subsubsection[{\texorpdfstring{Comp\+D()}{CompD()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerriseur\+::\+CompD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerriseur_af08e160418e6e6eaa46f135122bb0100}{}\label{classguerriseur_af08e160418e6e6eaa46f135122bb0100}
+
+
+\mbox{[}competence degat 1\mbox{]} 
+
+\mbox{[}competence degat 1 du guerrier, elle utilise du mana\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}entier, points de degats de la competence\mbox{]} 
+\end{DoxyReturn}
+\index{guerriseur@{guerriseur}!Comp\+Def1@{Comp\+Def1}}
+\index{Comp\+Def1@{Comp\+Def1}!guerriseur@{guerriseur}}
+\subsubsection[{\texorpdfstring{Comp\+Def1()}{CompDef1()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerriseur\+::\+Comp\+Def1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classguerriseur_a86d4ab840da8e19f4af28c2159b985d9}{}\label{classguerriseur_a86d4ab840da8e19f4af28c2159b985d9}
+
+
+\mbox{[}competence degat plus\mbox{]} 
+
+\mbox{[}competence degat, deuxieme du nom du guerrier, elle utilise aussi du M\+A\+NA\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}et elle retourne deux attaques de base\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-int {\bfseries CompD} ()\hypertarget{classguerriseur_af08e160418e6e6eaa46f135122bb0100}{}\label{classguerriseur_af08e160418e6e6eaa46f135122bb0100}
-
-\item 
-int {\bfseries Comp\+Def1} ()\hypertarget{classguerriseur_a86d4ab840da8e19f4af28c2159b985d9}{}\label{classguerriseur_a86d4ab840da8e19f4af28c2159b985d9}
-
-\end{DoxyCompactItemize}
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-src/Perso.\+h\end{DoxyCompactItemize}
+src/Perso.\+h\item 
+src/Perso.\+cpp\end{DoxyCompactItemize}

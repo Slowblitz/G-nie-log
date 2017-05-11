@@ -8,18 +8,17 @@ class Map
 	int taille;
 	
 
-public:
+	public:
+		Map(string s);
 
-	Map(string s);
+		void affichage();
+		void affichageWM();
+		
+		bool cmptM();
+		bool trouveJ(string s, perso &p, monster m);
+		bool combat(perso &p, monster &m);
 
-	void affichage();
-	void affichageWM();
-	bool cmptM();
-
-	bool trouveJ(string s, perso &p, monster m);
-	bool combat(perso &p, monster &m);
-
-	friend class Case;	
+		friend class Case;	
 };
 
 bool verifEntree(string s,int &n);

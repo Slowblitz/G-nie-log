@@ -1,5 +1,6 @@
 #include "Case.h"
 
+
 /**
  * @brief [constructeur]
  * @details [constructeur sans arguments]
@@ -10,6 +11,7 @@ Case::Case()
 	y=0;
 	cntn="0";
 }
+
 
 /**
  * @brief [constructeur]
@@ -26,6 +28,7 @@ Case::Case(int a, int b, char s)
 	cntn=s;
 }
 
+
 /**
  * @brief [retourne contenu]
  * @details [retourne contenu]
@@ -33,6 +36,7 @@ Case::Case(int a, int b, char s)
  */
 string Case::getcntn()
 { return cntn; }
+
 
 /**
  * @brief [modifie le contenu]

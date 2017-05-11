@@ -17,7 +17,7 @@ int \hyperlink{classguerrier_a10fd03fa9902b9a940d0b434db1fccf1}{CompD} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}competence degat 1\mbox{]} \end{DoxyCompactList}\item 
 int \hyperlink{classguerrier_a17bb023142307c2b653af6aa4e987b5e}{Comp\+Dp} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}competence degat plus\mbox{]} \end{DoxyCompactList}\item 
-int \hyperlink{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{choice\+Cmp} ()
+virtual int \hyperlink{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{choice\+Cmp} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}choix d\textquotesingle{}une competence\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -49,7 +49,7 @@ int \hyperlink{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{choice\+Cmp} ()
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{}\label{classguerrier_ae5a7dd269982a79d3e351afa062e376b}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{}\label{classguerrier_ae5a7dd269982a79d3e351afa062e376b}
 
 
 \mbox{[}choix d\textquotesingle{}une competence\mbox{]} 
@@ -57,6 +57,10 @@ int \hyperlink{classguerrier_ae5a7dd269982a79d3e351afa062e376b}{choice\+Cmp} ()
 \mbox{[}choix d\textquotesingle{}une competence de la classe guerrier\mbox{]} \begin{DoxyReturn}{Returns}
 \mbox{[}un entier en fonction de l\textquotesingle{}attaque choisie\mbox{]} 
 \end{DoxyReturn}
+
+
+Implements \hyperlink{classperso}{perso}.
+
 \index{guerrier@{guerrier}!CompD@{CompD}}
 \index{CompD@{CompD}!guerrier@{guerrier}}
 \subsubsection[{\texorpdfstring{Comp\+D()}{CompD()}}]{\setlength{\rightskip}{0pt plus 5cm}int guerrier\+::\+CompD (

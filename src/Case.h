@@ -15,13 +15,13 @@ class Case
 	int x, y;
 	string cntn;		//contenu de la case
 
-public:
+	public:
+		Case();
+		Case(int a, int b, char s);
 
-	Case();
-	Case(int a, int b, char s);
+		string getcntn();
 
-	string getcntn();
-	void modifcntnC(string s);
+		void modifcntnC(string s);
 
-	friend class Plateau;
+		friend class Plateau;
 };

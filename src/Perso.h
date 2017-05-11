@@ -1,7 +1,11 @@
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
 #include <string>
 #pragma once
 
 using namespace std;
+
 
 class perso
 {
@@ -12,6 +16,7 @@ class perso
 		perso();
 		
 		string getname();
+
 		int getPointDeVie();
 		int getPointDeVieMax();
 		int getPointDeMana();
@@ -23,7 +28,6 @@ class perso
 		void setPmP(int n);
 		void setPv(int n);
 		void setPvP(int n);
-
 		void resetPm(int n);
 		void resetPv(int n);
 
@@ -75,12 +79,13 @@ class monster
 	int PointDeVie,PointDeVieMax,DmgMin,DmgMax;
 
 	public:	
-		
 		monster();
+
 		int AttackBase();
 		int getPointDeVie();
 		int getPointDeVieMax();
 		int getDmgMax();
 		int getDmgMin();
+
 		void setPv(int n);
 };

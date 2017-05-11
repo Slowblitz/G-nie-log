@@ -9,42 +9,35 @@ Inheritance diagram for perso\+:
 \item 
 \hyperlink{classperso_af0f49599683fc9a7637ca6e650fbf4aa}{perso} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}constructeur\mbox{]} \end{DoxyCompactList}\item 
-bool {\bfseries deplacement} ()\hypertarget{classperso_a33372ddde90782860b58f637a92671f3}{}\label{classperso_a33372ddde90782860b58f637a92671f3}
-
-\item 
-int {\bfseries Attack\+Base} ()\hypertarget{classperso_a15178707d38245a7ee5ef87feb6e4cfd}{}\label{classperso_a15178707d38245a7ee5ef87feb6e4cfd}
-
-\item 
 string \hyperlink{classperso_a489870c6f4a1a929ce46d02e628ee9ab}{getname} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}retourne nom\mbox{]} \end{DoxyCompactList}\item 
 int \hyperlink{classperso_a9391f03615788fb5a66ecf2f7b482c89}{get\+Point\+De\+Vie} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}retourne les points de vie\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classperso_a131f5374175f496da30cd1e4c2dc9d2a}{get\+Point\+De\+Vie\+Max} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}retourne les points de vie\mbox{]} \end{DoxyCompactList}\item 
 int \hyperlink{classperso_aaaa0f1cc177edd679882932937e96037}{get\+Point\+De\+Mana} ()
-\begin{DoxyCompactList}\small\item\em \mbox{[}retourne les points de mana\mbox{]} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{[}retourne les points de mana maximum\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classperso_a8bfd2543dc26ba198896e682ebed9359}{get\+Point\+De\+Mana\+Max} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}retourne les points de mana maximum\mbox{]} \end{DoxyCompactList}\item 
 int \hyperlink{classperso_ade68d24d4ba5af130d7b083d27475097}{get\+Dmg\+Min} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}retourne les degats minimum\mbox{]} \end{DoxyCompactList}\item 
 int \hyperlink{classperso_a2e2ad259f19c593468dc0bfecee1a705}{get\+Dmg\+Max} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}retourne les degats maximum\mbox{]} \end{DoxyCompactList}\item 
-int {\bfseries CompD} (int, int)\hypertarget{classperso_ae8cd37378a85a88da8921d6d0cf535b0}{}\label{classperso_ae8cd37378a85a88da8921d6d0cf535b0}
-
-\item 
-int {\bfseries Comp\+Def1} (int)\hypertarget{classperso_a585d4e241fc6f9d48ce2178095657327}{}\label{classperso_a585d4e241fc6f9d48ce2178095657327}
-
-\item 
-int {\bfseries Comp\+Def2} (int)\hypertarget{classperso_ac5625df674ac481f7849414dbf02ed10}{}\label{classperso_ac5625df674ac481f7849414dbf02ed10}
-
-\item 
-int {\bfseries Comp\+Def3} (int)\hypertarget{classperso_a62e3091f335cb603c01cfe50cf6f0e17}{}\label{classperso_a62e3091f335cb603c01cfe50cf6f0e17}
-
-\item 
 void \hyperlink{classperso_a73d58834d3ded8c43ea88c8f29164126}{set\+Pm} (int n)
 \begin{DoxyCompactList}\small\item\em \mbox{[}modifie les points de mana\mbox{]} \end{DoxyCompactList}\item 
-void \hyperlink{classperso_a4bcc4446c996892afee3a4f4f46b8ff4}{reset\+Pm} (int n)
-\begin{DoxyCompactList}\small\item\em \mbox{[}reset points de mana\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{classperso_a29bef28c3511b57f07ba709859a94445}{set\+PmP} (int n)
+\begin{DoxyCompactList}\small\item\em \mbox{[}modifie les points de mana\mbox{]} \end{DoxyCompactList}\item 
 void \hyperlink{classperso_ab89e95d6a00dfd9f59e6e82514ffbf76}{set\+Pv} (int n)
 \begin{DoxyCompactList}\small\item\em \mbox{[}modifie les points de vie\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{classperso_aaa563fa42da0f3d5d7583cbdd9cc6978}{set\+PvP} (int n)
+\begin{DoxyCompactList}\small\item\em \mbox{[}modifie les points de vie\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{classperso_a4bcc4446c996892afee3a4f4f46b8ff4}{reset\+Pm} (int n)
+\begin{DoxyCompactList}\small\item\em \mbox{[}reset points de mana\mbox{]} \end{DoxyCompactList}\item 
 void \hyperlink{classperso_ae61322308a99edf835ffe4243dc9767f}{reset\+Pv} (int n)
-\begin{DoxyCompactList}\small\item\em \mbox{[}reset points de vie\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \mbox{[}reset points de vie\mbox{]} \end{DoxyCompactList}\item 
+virtual int {\bfseries choice\+Cmp} ()=0\hypertarget{classperso_a3cc4bfd685842e8eb754ccb91023e0bc}{}\label{classperso_a3cc4bfd685842e8eb754ccb91023e0bc}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -113,9 +106,23 @@ void \hyperlink{classperso_ae61322308a99edf835ffe4243dc9767f}{reset\+Pv} (int n)
 )}\hypertarget{classperso_aaaa0f1cc177edd679882932937e96037}{}\label{classperso_aaaa0f1cc177edd679882932937e96037}
 
 
-\mbox{[}retourne les points de mana\mbox{]} 
+\mbox{[}retourne les points de mana maximum\mbox{]} 
 
-\mbox{[}retourne les points de mana du perso aka joueur\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}retourne les points de mana maximum du perso aka joueur\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}retourne un entier\mbox{]} 
+\end{DoxyReturn}
+\index{perso@{perso}!get\+Point\+De\+Mana\+Max@{get\+Point\+De\+Mana\+Max}}
+\index{get\+Point\+De\+Mana\+Max@{get\+Point\+De\+Mana\+Max}!perso@{perso}}
+\subsubsection[{\texorpdfstring{get\+Point\+De\+Mana\+Max()}{getPointDeManaMax()}}]{\setlength{\rightskip}{0pt plus 5cm}int perso\+::get\+Point\+De\+Mana\+Max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classperso_a8bfd2543dc26ba198896e682ebed9359}{}\label{classperso_a8bfd2543dc26ba198896e682ebed9359}
+
+
+\mbox{[}retourne les points de mana maximum\mbox{]} 
+
+\mbox{[}retourne les points de mana maximum du perso aka joueur\mbox{]} \begin{DoxyReturn}{Returns}
 \mbox{[}retourne un entier\mbox{]} 
 \end{DoxyReturn}
 \index{perso@{perso}!get\+Point\+De\+Vie@{get\+Point\+De\+Vie}}
@@ -125,6 +132,20 @@ void \hyperlink{classperso_ae61322308a99edf835ffe4243dc9767f}{reset\+Pv} (int n)
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classperso_a9391f03615788fb5a66ecf2f7b482c89}{}\label{classperso_a9391f03615788fb5a66ecf2f7b482c89}
+
+
+\mbox{[}retourne les points de vie\mbox{]} 
+
+\mbox{[}retourne les points de vie du perso aka joueur\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}retourne un entier\mbox{]} 
+\end{DoxyReturn}
+\index{perso@{perso}!get\+Point\+De\+Vie\+Max@{get\+Point\+De\+Vie\+Max}}
+\index{get\+Point\+De\+Vie\+Max@{get\+Point\+De\+Vie\+Max}!perso@{perso}}
+\subsubsection[{\texorpdfstring{get\+Point\+De\+Vie\+Max()}{getPointDeVieMax()}}]{\setlength{\rightskip}{0pt plus 5cm}int perso\+::get\+Point\+De\+Vie\+Max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classperso_a131f5374175f496da30cd1e4c2dc9d2a}{}\label{classperso_a131f5374175f496da30cd1e4c2dc9d2a}
 
 
 \mbox{[}retourne les points de vie\mbox{]} 
@@ -186,6 +207,24 @@ void \hyperlink{classperso_ae61322308a99edf835ffe4243dc9767f}{reset\+Pv} (int n)
 {\em n} & \mbox{[}entier, cout en mana d\textquotesingle{}un attaque\mbox{]} \\
 \hline
 \end{DoxyParams}
+\index{perso@{perso}!set\+PmP@{set\+PmP}}
+\index{set\+PmP@{set\+PmP}!perso@{perso}}
+\subsubsection[{\texorpdfstring{set\+Pm\+P(int n)}{setPmP(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void perso\+::set\+PmP (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classperso_a29bef28c3511b57f07ba709859a94445}{}\label{classperso_a29bef28c3511b57f07ba709859a94445}
+
+
+\mbox{[}modifie les points de mana\mbox{]} 
+
+\mbox{[}modifie les points de mana du perso aka joueur a partir d\textquotesingle{}une competence de def du joueur (ajout mana)\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{[}entier, compt def joueur \mbox{]} \\
+\hline
+\end{DoxyParams}
 \index{perso@{perso}!set\+Pv@{set\+Pv}}
 \index{set\+Pv@{set\+Pv}!perso@{perso}}
 \subsubsection[{\texorpdfstring{set\+Pv(int n)}{setPv(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void perso\+::set\+Pv (
@@ -202,6 +241,24 @@ void \hyperlink{classperso_ae61322308a99edf835ffe4243dc9767f}{reset\+Pv} (int n)
 
 \begin{DoxyParams}{Parameters}
 {\em n} & \mbox{[}entier, degats fait par un monstre\mbox{]} \\
+\hline
+\end{DoxyParams}
+\index{perso@{perso}!set\+PvP@{set\+PvP}}
+\index{set\+PvP@{set\+PvP}!perso@{perso}}
+\subsubsection[{\texorpdfstring{set\+Pv\+P(int n)}{setPvP(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void perso\+::set\+PvP (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classperso_aaa563fa42da0f3d5d7583cbdd9cc6978}{}\label{classperso_aaa563fa42da0f3d5d7583cbdd9cc6978}
+
+
+\mbox{[}modifie les points de vie\mbox{]} 
+
+\mbox{[}modifie les points de vie du perso aka joueur a partir d\textquotesingle{}une competence defence du joueur (ajout vie)\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{[}entier, compt def joueur\mbox{]} \\
 \hline
 \end{DoxyParams}
 

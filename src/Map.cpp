@@ -1,9 +1,11 @@
 #include "Map.h"
 
+
 string tree="\033[1m\033[32m*\033[0;m";
 string water="\033[1m\033[34m~\033[0;m";
 string montain="\033[1m\033[33m^\033[0;m";
 string player="\033[1m\033[31mJ\033[0;m";
+
 
 /**
  * @brief [constrcteur]
@@ -30,7 +32,7 @@ Map::Map(string s)
 	
 		mp=new Case*[taille];
 
-		if(!fichier.eof())getline(fichier,ligne);
+		if(!fichier.eof()) getline(fichier,ligne);
 
 		for (int i=0; i < taille+1; i++)
 		{
@@ -47,6 +49,7 @@ Map::Map(string s)
 	}
 	else cout<<"erreur";
 }
+
 
 /**
  * @brief [affichage]
@@ -103,6 +106,7 @@ void Map::affichage()
 	}
 		cout<<endl;
 }
+
 
 /**
  * @brief [affichage]
@@ -163,6 +167,7 @@ void Map::affichageWM()
 		cout<<endl;
 }
 
+
 /**
  * @brief [compteur de monstre]
  * @details [compte les monstres restant sur la map]
@@ -185,6 +190,7 @@ bool Map::cmptM()
 
 	else return false;
 }
+
 
 /**
  * @brief [trouve le joueur, le déplace si possible et lance un combat si un monstre est trouvé]
@@ -341,6 +347,7 @@ bool Map::trouveJ(string s, perso &p, monster m)
 	}
 }
 
+
 /**
  * @brief [lance un combat entre le joueur et un monstre]
  * @details [lance un combat entre le joueur et un monstre, il y a un random pour choisir qui commence]
@@ -394,6 +401,7 @@ bool Map::combat(perso &p, monster &m)
 
 	else if(p.getPointDeVie()<=0) return false;
 }
+
 
 /**
  * @brief [verifie entrée]

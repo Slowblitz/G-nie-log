@@ -11,17 +11,87 @@ Collaboration diagram for mage\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int {\bfseries Attack\+Base} ()\hypertarget{classmage_adf9223f5db24f0f10232d57e85cd01a1}{}\label{classmage_adf9223f5db24f0f10232d57e85cd01a1}
+int \hyperlink{classmage_adf9223f5db24f0f10232d57e85cd01a1}{Attack\+Base} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}attaque de base\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classmage_a9f3aec41e35276023c324bd041d1bdbc}{CompD} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}competence degat 1\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{classmage_a377bad39b6c9e6c98698f620583e6f25}{Comp\+Def1} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}competence degat plus\mbox{]} \end{DoxyCompactList}\item 
+virtual int \hyperlink{classmage_aac7972e80b2ca35f468a42f1f757558f}{choice\+Cmp} ()
+\begin{DoxyCompactList}\small\item\em \mbox{[}choix d\textquotesingle{}une competence\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Member Function Documentation}
+\index{mage@{mage}!Attack\+Base@{Attack\+Base}}
+\index{Attack\+Base@{Attack\+Base}!mage@{mage}}
+\subsubsection[{\texorpdfstring{Attack\+Base()}{AttackBase()}}]{\setlength{\rightskip}{0pt plus 5cm}int mage\+::\+Attack\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmage_adf9223f5db24f0f10232d57e85cd01a1}{}\label{classmage_adf9223f5db24f0f10232d57e85cd01a1}
+
+
+\mbox{[}attaque de base\mbox{]} 
+
+\mbox{[}attaque de base du guerrier en fonction d\textquotesingle{}un random entre les degats minimumet maximum\mbox{]}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \mbox{[}pour le random en fonction du temps\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}entier, points de degats de la competence\mbox{]} 
+\end{DoxyReturn}
+\index{mage@{mage}!choice\+Cmp@{choice\+Cmp}}
+\index{choice\+Cmp@{choice\+Cmp}!mage@{mage}}
+\subsubsection[{\texorpdfstring{choice\+Cmp()}{choiceCmp()}}]{\setlength{\rightskip}{0pt plus 5cm}int mage\+::choice\+Cmp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classmage_aac7972e80b2ca35f468a42f1f757558f}{}\label{classmage_aac7972e80b2ca35f468a42f1f757558f}
+
+
+\mbox{[}choix d\textquotesingle{}une competence\mbox{]} 
+
+\mbox{[}choix d\textquotesingle{}une competence de la classe guerrier\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}un entier en fonction de l\textquotesingle{}attaque choisie\mbox{]} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classperso}{perso}.
+
+\index{mage@{mage}!CompD@{CompD}}
+\index{CompD@{CompD}!mage@{mage}}
+\subsubsection[{\texorpdfstring{Comp\+D()}{CompD()}}]{\setlength{\rightskip}{0pt plus 5cm}int mage\+::\+CompD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmage_a9f3aec41e35276023c324bd041d1bdbc}{}\label{classmage_a9f3aec41e35276023c324bd041d1bdbc}
+
+
+\mbox{[}competence degat 1\mbox{]} 
+
+\mbox{[}competence degat 1 du guerrier, elle utilise du mana\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}entier, points de degats de la competence\mbox{]} 
+\end{DoxyReturn}
+\index{mage@{mage}!Comp\+Def1@{Comp\+Def1}}
+\index{Comp\+Def1@{Comp\+Def1}!mage@{mage}}
+\subsubsection[{\texorpdfstring{Comp\+Def1()}{CompDef1()}}]{\setlength{\rightskip}{0pt plus 5cm}int mage\+::\+Comp\+Def1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmage_a377bad39b6c9e6c98698f620583e6f25}{}\label{classmage_a377bad39b6c9e6c98698f620583e6f25}
+
+
+\mbox{[}competence degat plus\mbox{]} 
+
+\mbox{[}competence degat, deuxieme du nom du guerrier, elle utilise aussi du M\+A\+NA\mbox{]} \begin{DoxyReturn}{Returns}
+\mbox{[}et elle retourne deux attaques de base\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-int {\bfseries CompD} ()\hypertarget{classmage_a9f3aec41e35276023c324bd041d1bdbc}{}\label{classmage_a9f3aec41e35276023c324bd041d1bdbc}
-
-\item 
-int {\bfseries Comp\+Def1} ()\hypertarget{classmage_a377bad39b6c9e6c98698f620583e6f25}{}\label{classmage_a377bad39b6c9e6c98698f620583e6f25}
-
-\end{DoxyCompactItemize}
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-src/Perso.\+h\end{DoxyCompactItemize}
+src/Perso.\+h\item 
+src/Perso.\+cpp\end{DoxyCompactItemize}
