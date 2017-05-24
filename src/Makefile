@@ -1,5 +1,4 @@
 all: E-gam
-	 clear
 	 ./E-gam
 	 
 

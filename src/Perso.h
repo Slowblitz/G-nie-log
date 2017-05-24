@@ -37,10 +37,10 @@ class perso
 
 class guerrier : public perso
 {
-	int PointDeVie,PointDeMana,DmgMin,DmgMax;
+	int PointDeVie,PointDeMana,DmgMin,DmgMax;	
 	
 	public:
-
+		
 		int AttackBase();
 		int CompD();
 		int CompDp();
@@ -50,10 +50,10 @@ class guerrier : public perso
 
 class mage : public perso
 {
-	int PointDeVie,PointDeMana,DmgMin,DmgMax;
+	int PointDeVie,PointDeMana,DmgMin,DmgMax;	
 
 	public:
-
+		
 		int AttackBase();
 		int CompD();
 		int CompDef1();
@@ -61,9 +61,9 @@ class mage : public perso
 };
 
 
-class guerriseur : public perso
+class guerisseur : public perso
 {
-	int PointDeVie,PointDeMana,DmgMin,DmgMax;
+	int PointDeVie,PointDeMana,DmgMin,DmgMax;	
 
 	public:
 

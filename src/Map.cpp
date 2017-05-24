@@ -21,12 +21,8 @@ Map::Map(string s)
     {
 
     	string ligne;
-    	int nLigne=0;
-    	int t;
 
-    	fichier >> t;
-
-    	taille=t;
+    	fichier >> taille;
 
     	//cout<<t<<endl;
 	
@@ -201,7 +197,7 @@ bool Map::cmptM()
  * @param m [monstre]
  * @return [retourne true si le déplacement est réalisé et si est tué sinon false si impossible de se déplacer ou si le joueur meurt]
  */
-bool Map::trouveJ(string s, perso &p, monster m) 
+bool Map::trouveJ(string s, perso &p, monster m, int n) 
 {
 	for (int i=0; i < taille+1; i++)
 	{
@@ -223,6 +219,8 @@ bool Map::trouveJ(string s, perso &p, monster m)
 							{
 								mp[i-1][j].modifcntnC("J");
 								mp[i][j].modifcntnC(" ");
+
+								appelSave(n);
 
 								return true;
 							}
@@ -257,6 +255,8 @@ bool Map::trouveJ(string s, perso &p, monster m)
 								mp[i+1][j].modifcntnC("J");
 								mp[i][j].modifcntnC(" ");
 
+								appelSave(n);
+
 								return true;
 							}
 
@@ -290,6 +290,8 @@ bool Map::trouveJ(string s, perso &p, monster m)
 								mp[i][j-1].modifcntnC("J");
 								mp[i][j].modifcntnC(" ");
 
+								appelSave(n);
+
 								return true;
 							}
 
@@ -322,6 +324,8 @@ bool Map::trouveJ(string s, perso &p, monster m)
 							{
 								mp[i][j+1].modifcntnC("J");
 								mp[i][j].modifcntnC(" ");
+
+								appelSave(n);
 
 								return true;
 							}
@@ -393,6 +397,8 @@ bool Map::combat(perso &p, monster &m)
 
 	if(m.getPointDeVie()<=0)
 	{
+		
+
 		p.resetPv(100);
 		p.resetPm(100);
 		
@@ -419,4 +425,89 @@ bool verifEntree(string s,int &n)
 	if(istr >> n && (n==1 || n==2 || n==3)) return true;
 
 	else return false;
+}
+
+/**
+ * @brief [fait bouger les monstres]
+ * @details [fait bouger les monstres]
+ * 
+ * @param time [utile pour les random]
+ */
+void Map::bougeM()
+{
+	srand (time(NULL));
+	for(int i=0; i<taille; i++)
+	{	
+		
+		for(int j=0; j<taille; j++)
+		{
+			int rDi=rand() % 3 + (-1);
+			int rDj=rand() % 3 + (-1);
+
+			if(mp[i][j].getcntn()=="M")
+			{
+				if(i+rDi < taille && j+rDj < taille && i+rDi >= 0 && j+rDj >= 0)
+				{	
+					if(mp[i+rDi][j+rDj].getcntn() == " ") 
+					{
+						mp[i][j].modifcntnC(" ");
+						mp[i+rDi][j+rDj].modifcntnC("M");
+					}
+				}	
+			}
+		}
+	}
+}
+
+/**
+ * @brief [sauvegarde la map]
+ * @details [sauvegarde la map]
+ * @return [true si fait, false sinon]
+ * @param n [n -> class joueur]
+ */
+bool Map::save(int n)
+{
+	ofstream fichierS("save.dat",ios::out | ios::trunc );
+    
+    if(fichierS)
+    {
+    	fichierS<<taille<<endl;
+
+    	for(int i=0; i<taille; i++)
+    	{
+    		for (int j=0; j<taille; j++) fichierS<<mp[i][j].getcntn();
+
+    		fichierS<<endl;
+    	}
+
+    	ofstream fichierJ("saveJ.dat",ios::out | ios::trunc );
+
+    	if(fichierJ) fichierJ<<n;
+
+    	fichierS.close();
+    	fichierJ.close();
+
+    	return true;
+	}
+
+	else return false;
+}
+
+
+void Map::appelSave(int n)
+{
+	cout<<"le monstre est mort, bien joué"<<endl;
+
+	string a="n";
+
+	do
+	{
+		if(a != "n" && a != "o") cout<<"\033[1;37;41mimpossible entrez [o/n]\033[0m"<<endl;
+
+		cout<<"voulez vous sauvegarder la partie? [o/n]"<<endl;
+		cin>>a;
+
+		if(a=="o") save(n);
+
+	}while(a != "n" && a != "o");
 }

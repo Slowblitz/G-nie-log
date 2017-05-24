@@ -15,8 +15,13 @@ class Map
 		void affichageWM();
 		
 		bool cmptM();
-		bool trouveJ(string s, perso &p, monster m);
+		bool trouveJ(string s, perso &p, monster m, int n);
 		bool combat(perso &p, monster &m);
+
+		void bougeM();
+
+		bool save(int n);
+		void appelSave(int n);
 
 		friend class Case;	
 };

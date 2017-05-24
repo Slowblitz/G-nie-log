@@ -14,47 +14,94 @@ int main(int argc, char const *argv[])
 
 	system("clear");
 
-	do
-	{
-		if(!bn) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+	cout<<"Bienvenu dans notre jeu E-gam"<<endl;
 
-		cout<<"Bienvenu dans notre jeu E-gam"<<endl;
-		cout<<"choisissez une carte:   1 -> map1 (10*10) -- 5 monstres"<<endl;
-		cout<<"                        2 -> map2 (20*20) -- 10 monstres"<<endl;
-		cout<<"                        3 -> map3 (30*30) -- 15 monstres"<<endl;
-		cin>>nn;
-		bn=verifEntree(nn,n);
-
-	}while(!bn);
-
-
-	if(n==1) map=new Map("map1.dat");
-	else if(n==2) map=new Map("map2.dat");
-	else if(n==3) map=new Map("map3.dat");
-
+	string b="n";
 
 	do
 	{
-		if(!bm) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+		if(b != "n" && b != "o") cout<<"\033[1;37;41mimpossible entrez [o/n]\033[0m"<<endl;
+		cout<<"voulez vous charger une partie? [o/n]"<<endl;
+		cin>>b;
 
-		cout<<"choisissez une classe:   1 -> guerrier"<<endl;
-		cout<<"                         2 -> mage"<<endl;
-		cout<<"                         3 -> guerriseur"<<endl;
-		cin>>mm;
-		bm=verifEntree(mm,m);
+	}while(b != "n" && b != "o");
 
-	}while(!bm);
+	if(b == "o")
+	{
+		int nj;
+
+		map=new Map("save.dat");
+
+		ifstream fichierJ("saveJ.dat",ios::in);
+
+		fichierJ>>nj;
+
+		fichierJ.close();
+
+		if(nj==1) player=new guerrier();
+		else if(nj==2) player=new mage();
+		else if(nj==3) player=new guerisseur();
+
+		system("clear");
+	}
 
 
-	if(m==1) player=new guerrier();
-	else if(m==2) player=new mage();
-	else if(m==3) player=new guerriseur();
+	else if(b == "n")
+	{
+		system("clear");
+
+		do
+		{
+			if(!bn) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+
+			cout<<"choisissez une carte:   1 -> map1 (10*10) -- 5 monstres"<<endl;
+			cout<<"                        2 -> map2 (20*20) -- 10 monstres"<<endl;
+			cout<<"                        3 -> map3 (40*40) -- 20 monstres"<<endl;
+			cin>>nn;
+			bn=verifEntree(nn,n);
+
+		}while(!bn);
+
+
+		if(n==1) map=new Map("map1.dat");
+		else if(n==2) map=new Map("map2.dat");
+		else if(n==3) map=new Map("map3.dat");	
+
+
+		do
+		{
+			if(!bm) cout<<"\033[1;37;41mimpossible entrez 1 ou 2 ou 3\033[0m"<<endl;
+
+			cout<<"choisissez une classe:   1 -> guerrier"<<endl;
+			cout<<"                         2 -> mage"<<endl;
+			cout<<"                         3 -> guerriseur"<<endl;
+			cin>>mm;
+			bm=verifEntree(mm,m);
+
+		}while(!bm);
+
+
+		if(m==1) player=new guerrier();
+		else if(m==2) player=new mage();
+		else if(m==3) player=new guerisseur();
+
+	}
+
+	string dif="n";
+
+	do
+	{
+		if(dif != "n" && dif != "o") cout<<"\033[1;37;41mimpossible entrez [o/n]\033[0m"<<endl;
+		cout<<"voulez vous que les monstres bouges? [o/n]"<<endl;
+		cin>>dif;
+
+	}while(dif != "n" && dif != "o");
 
 
 	monster monster;
 
 	system("clear");
-	map->affichageWM();
+	map->affichage();
 
 	string s="z";
 	bool cdn=true;
@@ -66,15 +113,15 @@ int main(int argc, char const *argv[])
 			if(s != "z" && s != "Z" && s != "s" && s != "S" && s != "q" && s != "Q" && s != "d" && s != "D" && s != "e")
 			{ 
 				system("clear");
-				map->affichageWM();
-				cerr<<"\033[1;37;41mimpossible entrez [z|q|s|d] pour les directions, [e] pour quitter\033[0m"<<endl;
+				map->affichage();
+				cout<<"\033[1;37;41mimpossible entrez [z|q|s|d] pour les directions, [e] pour quitter\033[0m"<<endl;
 			}
 
 			if(!cdn)
 			{
 				system("clear");
-				map->affichageWM();
-				cerr<<"\033[1;37;41mimpossible vous rencontrez un obstacle\033[0m"<<endl;
+				map->affichage();
+				cout<<"\033[1;37;41mimpossible vous rencontrez un obstacle\033[0m"<<endl;
 			}
 
 			cout<<"choisissez une direction (haut -> z|Z / bas -> s|S / gauche -> q|Q / droite -> d|D)"<<endl;
@@ -90,7 +137,11 @@ int main(int argc, char const *argv[])
 
 			system("clear");
 
-			if(s == "z" || s == "Z" || s == "s" || s == "S" || s == "q" || s == "Q" || s == "d" || s == "D") cdn=map->trouveJ(s,*player,monster);
+			if(s == "z" || s == "Z" || s == "s" || s == "S" || s == "q" || s == "Q" || s == "d" || s == "D") 
+			{
+				cdn=map->trouveJ(s,*player,monster,m);
+				if(dif == "o") map->bougeM();
+			}
 
 		}while(!cdn && player->getPointDeVie()>0);
 
@@ -111,7 +162,7 @@ int main(int argc, char const *argv[])
 		}
 
 		system("clear");
-		map->affichageWM();
+		map->affichage();
 
 	}while(1);
 

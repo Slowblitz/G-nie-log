@@ -411,7 +411,7 @@ int mage::choiceCmp()
  * @param time [pour le random en fonction du temps]
  * @return [entier, points de degats de la competence]
  */
-int guerriseur::AttackBase()
+int guerisseur::AttackBase()
 {
 	srand (time(NULL));
 
@@ -428,7 +428,7 @@ int guerriseur::AttackBase()
  * @details [competence degat 1 du guerrier, elle utilise du mana]
  * @return [entier, points de degats de la competence]
  */
-int guerriseur::CompD()
+int guerisseur::CompD()
 {	
 	srand (time(NULL));
 
@@ -447,7 +447,7 @@ int guerriseur::CompD()
  * @details [competence degat, deuxieme du nom du guerrier, elle utilise aussi du MANA]
  * @return [et elle retourne deux attaques de base]
  */
-int guerriseur::CompDef1()
+int guerisseur::CompDef1()
 {
 	srand (time(NULL));
 
@@ -468,7 +468,7 @@ int guerriseur::CompDef1()
  * @details [choix d'une competence de la classe guerrier]
  * @return [un entier en fonction de l'attaque choisie]
  */
-int guerriseur::choiceCmp()
+int guerisseur::choiceCmp()
 {	
 	srand (time(NULL));
 
