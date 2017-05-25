@@ -98,10 +98,23 @@ int main(int argc, char const *argv[])
 	}while(dif != "n" && dif != "o");
 
 
+	string aff="n";
+
+	do
+	{
+		if(aff != "n" && aff != "o") cout<<"\033[1;37;41mimpossible entrez [o/n]\033[0m"<<endl;
+		cout<<"voulez vous voir les monstres bouges? [o/n]"<<endl;
+		cin>>aff;
+
+	}while(aff != "n" && aff != "o");
+
+
 	monster monster;
 
 	system("clear");
-	map->affichage();
+
+	if(aff=="o") map->affichage();
+	else map->affichageWM();
 
 	string s="z";
 	bool cdn=true;
@@ -113,14 +126,20 @@ int main(int argc, char const *argv[])
 			if(s != "z" && s != "Z" && s != "s" && s != "S" && s != "q" && s != "Q" && s != "d" && s != "D" && s != "e")
 			{ 
 				system("clear");
-				map->affichage();
+
+				if(aff=="o") map->affichage();
+				else map->affichageWM();
+
 				cout<<"\033[1;37;41mimpossible entrez [z|q|s|d] pour les directions, [e] pour quitter\033[0m"<<endl;
 			}
 
 			if(!cdn)
 			{
 				system("clear");
-				map->affichage();
+				
+				if(aff=="o") map->affichage();
+				else map->affichageWM();
+
 				cout<<"\033[1;37;41mimpossible vous rencontrez un obstacle\033[0m"<<endl;
 			}
 
@@ -162,7 +181,9 @@ int main(int argc, char const *argv[])
 		}
 
 		system("clear");
-		map->affichage();
+		
+		if(aff=="o") map->affichage();
+		else map->affichageWM();
 
 	}while(1);
 
